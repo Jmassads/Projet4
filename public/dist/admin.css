@@ -1,0 +1,181 @@
+html {
+  font-size: 85%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Libre Baskerville', serif;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  line-height: 2;
+}
+
+button:focus {
+  outline: 0;
+}
+
+#admin-main-header h1 {
+  font-size: 1.5rem;
+}
+
+.navbar-dark .navbar-toggler {
+  color: rgba(255, 255, 255, .5);
+  border-color: transparent;
+
+}
+
+.bd-callout+.bd-callout {
+  margin-top: -.25rem;
+}
+
+.bd-callout-warning {
+  border-left-color: #f0ad4e;
+}
+
+.bd-callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #eee;
+  border-left-width: .25rem;
+  border-radius: .25rem;
+}
+
+.bd-callout-info {
+  border-left-color: #5bc0de;
+}
+
+.bd-callout-dark {
+  border-left-color: #343a40;
+}
+
+
+
+
+/* CHAPTERS  */
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.list__item {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  color: #000;
+  position: relative;
+}
+
+@media screen and (min-width: 600px) {
+
+  .list__item {
+    width: calc(50% - 1rem);
+  }
+
+  .list__item:nth-child(odd) {
+    margin-right: 1rem;
+  }
+
+  .list__item:nth-child(even) {
+    margin-left: 1rem;
+  }
+
+
+}
+
+@media screen and (min-width: 992px) {
+
+  .list__item {
+    width: calc(33.3% - 1rem);
+  }
+
+  .list__item:nth-child(odd) {
+    margin-right: 0rem;
+  }
+
+  .list__item:nth-child(even) {
+    margin-left: 0rem;
+  }
+
+  .list__item:nth-child(3n + 1) {
+    margin-right: 1rem;
+  }
+
+  .list__item:nth-child(3n + 2) {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .list__item:nth-child(3n + 3) {
+    margin-left: 1rem;
+  }
+
+}
+
+.dashboard-items a {
+  color: #000;
+  text-decoration: none;
+}
+
+
+.table-comments a {
+  color: black;
+  text-decoration: none;
+}
+
+.btn-custom-red {
+  color: #fff;
+  background-color: #e4573d;
+  border-color: #e4573d;
+}
+
+.btn-custom-red:hover {
+  color: #fff;
+  background-color: #e14427;
+  border-color: #e14427;
+}
+
+/* back to top button */
+
+#backtotop {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Fixed/sticky position */
+  bottom: 10px;
+  /* Place the button at the bottom of the page */
+  right: 10px;
+  /* Place the button 30px from the right */
+  z-index: 99;
+  /* Make sure it does not overlap */
+  border: none;
+  /* Remove borders */
+  outline: none;
+  /* Remove outline */
+  background-color: transparent;
+  /* Set a background color */
+  color: #e4573d;
+  /* Text color */
+  cursor: pointer;
+  /* Add a mouse pointer on hover */
+  padding: 1rem;
+  /* Some padding */
+  border-radius: 10px;
+  /* Rounded corners */
+}
+
+#backtotop i {
+  font-size: 2.5rem;
+}
+
+
