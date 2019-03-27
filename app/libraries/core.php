@@ -74,14 +74,15 @@
        // This variable is the key to everything
        // echo $_GET['url'];
        // We now need to break it up into an array
+       if (isset($_GET['url'])) {
+       // variable superglobale $_GET
        $url = rtrim($_GET['url'], '/');
        // Supprime tous les caractères sauf les lettres, chiffres et $-_.+!*'(),{}|\\^~[]`<>#%";/?:@&=.
        $url = filter_var($url, FILTER_SANITIZE_URL);
        $url = explode('/', $url);
        //  print_r($url);
-       print_r($url);
-       echo '<br>';
        return $url;
+  }
 
      }
 

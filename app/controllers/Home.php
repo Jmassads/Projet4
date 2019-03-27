@@ -3,7 +3,7 @@
   /**
    *
    */
-  class Home
+  class Home extends Controller
   {
 
     function __construct()
@@ -12,6 +12,10 @@
     }
 
     function index(){
-      echo 'test';
+      $data = [
+        'title' => 'Bienvenue'
+      ];
+
+      $this->view('pages/index', $data);
     }
   }
