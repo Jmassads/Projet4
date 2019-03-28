@@ -139,5 +139,24 @@
   }
 
  }
-    
+
+     /**
+    * show
+    * Voir un livre (READ)
+    * @param mixed $id
+    * @return void
+    */
+    public function show($id)
+    {
+
+    $book = $this->bookModel->getBookById($id);
+
+    $data = [
+     'book' => $book,
+    ];
+
+    $this->view('adminbooks/show', $data);
+    }
+
+
   }
