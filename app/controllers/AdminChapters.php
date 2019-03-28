@@ -140,8 +140,22 @@ class AdminChapters extends Controller
  }
 
 
-  public function show($id){
-      echo ($id);
+   /**
+   * show
+   * Read : lecture d'un chapitre
+   * @param mixed $id
+   * @return void
+   */
+  public function show($id)
+  {
+
+   $chapter = $this->chapterModel->getChapterById($id);
+
+   $data = [
+    'chapter' => $chapter,
+   ];
+
+   $this->view('adminchapters/show', $data);
   }
 
   public function edit($id){
