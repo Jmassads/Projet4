@@ -55,7 +55,7 @@ class AdminChapters extends Controller
    $data = [
     'title' => $_POST['title'],
     'body' => $_POST['body'],
-    'image' => $_FILES['myfile']['name'],
+    'image' => str_replace(' ', '', $_FILES['myfile']['name']),
 
     'title_err' => '',
     'body_err' => '',
@@ -72,7 +72,7 @@ class AdminChapters extends Controller
 
    // les informations concernant les champs de type file sont enregistrées dans le tableau superglobal $_FILES ;
 
-   $fileName = $_FILES['myfile']['name']; // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
+   $fileName = str_replace(' ', '', $_FILES['myfile']['name']); // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
    $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
    $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
    $fileType = $_FILES['myfile']['type'];
@@ -176,7 +176,7 @@ class AdminChapters extends Controller
     'id' => $id,
     'title' => $_POST['title'],
     'body' => $_POST['body'],
-    'image' => $_FILES['myfile']['name'],
+    'image' => str_replace(' ', '', $_FILES['myfile']['name']),
 
     'title_err' => '',
     'body_err' => '',
@@ -191,7 +191,7 @@ class AdminChapters extends Controller
 
    $fileExtensions = ['jpeg', 'jpg', 'png']; // Get all the file extensions
 
-   $fileName = $_FILES['myfile']['name']; // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
+   $fileName = str_replace(' ', '', $_FILES['myfile']['name']); // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
    $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
    $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
    $fileType = $_FILES['myfile']['type'];

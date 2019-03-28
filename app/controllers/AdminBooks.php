@@ -176,7 +176,7 @@
     'id' => $id,
     'title' => $_POST['title'],
     'summary' => $_POST['summary'],
-    'image' => $_FILES['myfile']['name'],
+    'image' => str_replace(' ', '', $_FILES['myfile']['name']),
 
     'title_err' => '',
     'summary_err' => '',
@@ -191,7 +191,7 @@
 
    $fileExtensions = ['jpeg', 'jpg', 'png']; // Get all the file extensions
 
-   $fileName = $_FILES['myfile']['name']; // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
+   $fileName = str_replace(' ', '', $_FILES['myfile']['name']); // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
    $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
    $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
    $fileType = $_FILES['myfile']['type'];
@@ -278,7 +278,7 @@ if ($this->bookModel->deleteBook($id)) {
 } else {
  die('Something went wrong');
 }
-} 
+}
 }
 
 
