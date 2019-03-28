@@ -261,6 +261,26 @@
   }
  }
 
+ /**
+* deletebook
+* Supprimer un livre (DELETE)
+* @param mixed $id
+* @return void
+*/
+public function deletebook($id)
+{
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//Execute
+if ($this->bookModel->deleteBook($id)) {
+ // Redirect to login
+ flash('book_message', 'Livre supprimé');
+ redirect('adminBooks/index');
+} else {
+ die('Something went wrong');
+}
+} 
+}
+
 
 
 
