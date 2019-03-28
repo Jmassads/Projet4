@@ -7,9 +7,9 @@
     <div class="pushy-content">
       <ul>
         <!-- Submenu -->
-    <li class="pushy-link"><a href="<?php echo URLROOT; ?>">Accueil</a></li>
-    <li class="pushy-submenu">
-      <button>Un Billet Simple pour l'Alaska</button>
+        <li class="pushy-link"><a href="<?php echo URLROOT; ?>">Accueil</a></li>
+        <li class="pushy-submenu">
+          <button>Un Billet Simple pour l'Alaska</button>
           <ul>
             <li class="pushy-link"><a href="<?php echo URLROOT; ?>/chapitres">Tous les chapitres</a></li>
             <?php foreach ($data['chapters'] as $chapter): ?>
@@ -56,7 +56,7 @@
 
         <div class="row justify-content-center align-items-center">
           <div class="col-sm-6">
-            <img class="img-fluid" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['author']->image; ?>" alt="">
+            <img class="img-fluid" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['author']->image; ?>" alt="Photo de Jean Forteroche">
           </div>
           <div class="col-sm-6 mt-4">
             <blockquote class="blockquote text-center">
@@ -84,8 +84,7 @@
                 </div>
                 <?php echo $book->summary; ?>
               </div>
-              <div><a href="<?php echo URLROOT; ?>/chapitres">Lire les chapitres </a><i
-                  class="fas fa-angle-double-right color-custom-red"></i></div>
+              <div><a href="<?php echo URLROOT; ?>/chapitres">Lire les chapitres </a><i class="fas fa-angle-double-right color-custom-red"></i></div>
             </div>
           </div>
           <div class="col-md-5">
@@ -116,8 +115,7 @@
           <?php endforeach;?>
         </div>
         <div class="d-flex justify-content-end">
-          <a class="text-uppercase" href="<?php echo URLROOT; ?>/livres">Tous les livres <i
-              class="fas fa-angle-double-right color-custom-red"></i></a></div>
+          <a class="text-uppercase" href="<?php echo URLROOT; ?>/livres">Tous les livres <i class="fas fa-angle-double-right color-custom-red"></i></a></div>
       </div>
     </section>
 

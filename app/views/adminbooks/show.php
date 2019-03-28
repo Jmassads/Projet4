@@ -16,7 +16,7 @@
   <div class="row">
     <div class="col-sm-6">
       <figure class="text-center">
-        <img class="img-fluid p-3" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['book']->image; ?>" alt="">
+        <img class="img-fluid p-3" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['book']->image; ?>" alt="<?php echo $data['book']->title; ?>">
       </figure>
     </div>
     <div class="col-sm-6">

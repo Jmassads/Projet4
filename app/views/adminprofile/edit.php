@@ -20,17 +20,13 @@
             <form action="<?php echo URLROOT; ?>/adminProfile/edit" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="name">Nom</label>
-                <input type="text" name="name"
-                  class="form-control <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>"
-                  value="<?php echo $data['currentUser']->name; ?>">
+                <input type="text" name="name" class="form-control <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['currentUser']->name; ?>">
                 <span class="invalid-feedback">
                   <?php echo $data['name_err']; ?></span>
               </div>
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email"
-                  class="form-control <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>"
-                  value="<?php echo $data['currentUser']->email; ?>">
+                <input type="email" name="email" class="form-control <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" value="<?php echo $data['currentUser']->email; ?>">
                 <span class="invalid-feedback">
                   <?php echo $data['email_err']; ?></span>
               </div>
