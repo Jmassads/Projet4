@@ -263,4 +263,24 @@ class AdminChapters extends Controller
   }
  }
 
+ /**
+* deletechapter
+* Delete : suppression de chapitres
+* @param mixed $id
+* @return void
+*/
+  public function deletechapter($id)
+  {
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   //Execute
+     if ($this->chapterModel->deleteChapter($id)) {
+      // Redirect to login
+      flash('chapter_message', 'Chapitre supprimé');
+      redirect('adminChapters/index');
+     } else {
+      die('Something went wrong');
+     }
+  }
+  }
+
 }
