@@ -158,8 +158,109 @@ class AdminChapters extends Controller
    $this->view('adminchapters/show', $data);
   }
 
-  public function edit($id){
-      echo ($id);
+  /**
+  * edit
+  * Update : mise à jour de chapitres
+  * @param mixed $id
+  * @return void
+  */
+ public function edit($id)
+ {
+  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   // die('submitted');
+   // Sanitize POST array
+
+   //  $_POST = filter_input_array(INPUT_POST);
+
+   $data = [
+    'id' => $id,
+    'title' => $_POST['title'],
+    'body' => $_POST['body'],
+    'image' => $_FILES['myfile']['name'],
+
+    'title_err' => '',
+    'body_err' => '',
+    'image_err' => '',
+   ];
+
+   $currentDir = getcwd();
+   $uploadDirectory = "/uploads/";
+
+   // $errors = []; // Store all foreseen and unforseen errors here
+   $data['image_err'] = []; // Store all foreseen and unforseen errors here
+
+   $fileExtensions = ['jpeg', 'jpg', 'png']; // Get all the file extensions
+
+   $fileName = $_FILES['myfile']['name']; // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
+   $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
+   $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
+   $fileType = $_FILES['myfile']['type'];
+   $tmp = explode('.', $fileName);
+   $fileExtension = strtolower(end($tmp));
+
+   $uploadPath = $currentDir . $uploadDirectory . basename($fileName);
+
+   // Validate data
+   if (empty($data['title'])) {
+    $data['title_err'] = 'Ce champ ne peut pas être vide';
+   }
+   if (empty($data['body'])) {
+    $data['body_err'] = 'Ce champ ne peut pas être vide';
+   }
+
+   if (!in_array($fileExtension, $fileExtensions)) {
+    $data['image_err'][] = "Les fichiers autorises sont: .jpg, .jpeg, .png";
+   }
+   if ($fileSize > 2000000) {
+    $data['image_err'][] = "Le fichier ne doit pas depasser les 2MB";
+   }
+
+   // Make sure there are no errors with the title and content
+   if (empty($data['title_err']) && empty($data['body_err']) && empty($data['image'])) {
+    // if image uploaded without errors, we add the chapter into the database
+    if ($this->chapterModel->updateChapter($data)) {
+     //  die("success");
+     flash('chapter_message', 'Chapitre modifié sans image');
+     redirect('adminChapters');
+    } else {
+     die('Il y a eu une erreur');
+    }
+   } else if (empty($data['title_err']) && empty($data['body_err']) && empty($data['image_err']) && !empty($data['image'])) {
+
+    // Validated (no image errors)
+
+    $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
+
+    if ($didUpload) {
+     // if image uploaded without errors, we add the chapter into the database
+     if ($this->chapterModel->updateChapterWithImage($data)) {
+      //  die('SUCCESS');
+      flash('chapter_message', 'Chapitre modifié avec image');
+      redirect('adminChapters');
+     } else {
+      die('Il y a eu une erreur');
+     }
+    }
+
+   } else {
+    $this->view('adminChapters/edit', $data);
+
+   }
+
+  } else {
+
+   // Get existing chapter from model
+   $chapter = $this->chapterModel->getChapterById($id);
+
+   $data = [
+    'id' => $id,
+    'title' => $chapter->title,
+    'body' => $chapter->body,
+    'image' => $chapter->image,
+   ];
+   $this->view('adminchapters/edit', $data);
+
   }
+ }
 
 }
