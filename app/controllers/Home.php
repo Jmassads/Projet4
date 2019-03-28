@@ -4,27 +4,26 @@
    *
    */
   class Home extends Controller
-
   {
-    // déclaration des propriétés
-    private $chapterModel;
-    private $bookModel;
+      // déclaration des propriétés
+      private $chapterModel;
+      private $bookModel;
 
-    function __construct()
-    {
-      $this->chapterModel = $this->model('AdminChapter');
-      $this->bookModel = $this->model('AdminBook');
-    }
+      public function __construct()
+      {
+          $this->chapterModel = $this->model('AdminChapter');
+          $this->bookModel = $this->model('AdminBook');
+      }
 
-    function index(){
+      public function index()
+      {
+          $chapters = $this->chapterModel->getChapters();
+          $books = $this->bookModel->getBooks();
 
-      $chapters = $this->chapterModel->getChapters();
-      $books = $this->bookModel->getBooks();
-
-      $data = [
+          $data = [
        'chapters' => $chapters,
        'books' => $books
       ];
-      $this->view('pages/index', $data);
-    }
+          $this->view('pages/index', $data);
+      }
   }
