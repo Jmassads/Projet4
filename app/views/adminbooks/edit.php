@@ -24,8 +24,8 @@
       </div>
       <div class="form-group">
         <label for="summary">Contenu: <sup>*</sup></label>
-        <textarea class="mytextarea" name="summary"
-          class="form-control form-control-lg <?php echo (!empty($data['summary_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['summary']; ?></textarea>
+        <textarea name="summary"
+          class="mytextarea form-control form-control-lg <?php echo (!empty($data['summary_err'])) ? 'is-invalid' : ''; ?>"><?php echo $data['summary']; ?></textarea>
         <span class="invalid-feedback">
           <?php echo $data['summary_err']; ?></span>
       </div>

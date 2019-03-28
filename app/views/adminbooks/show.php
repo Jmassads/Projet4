@@ -28,8 +28,7 @@
   <div class="d-flex justify-content-end">
     <a href="<?php echo URLROOT; ?>/adminBooks/edit/<?php echo $data['book']->id; ?>" class="btn btn-dark">Modifier</a>
 
-    <form class="ml-2" action="<?php echo URLROOT; ?>/adminBooks/deletebook/<?php echo $data['book']->id; ?>"
-      method="post">
+    <form class="ml-2" action="<?php echo URLROOT; ?>/adminBooks/deletebook/<?php echo $data['book']->id; ?>" method="post">
       <input type="submit" value="Supprimer" class="btn btn-danger">
     </form>
   </div>
