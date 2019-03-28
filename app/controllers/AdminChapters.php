@@ -51,29 +51,29 @@ class AdminChapters extends Controller
             // Nous récupérons ici les données postées par le formulaire
             // les champs textuels (text, select, textarea, ...) sont copiés dans le tableau superglobal $_POST ;
             $data = [
-    'title' => $_POST['title'],
-    'body' => $_POST['body'],
-    'image' => str_replace(' ', '', $_FILES['myfile']['name']),
+              'title' => $_POST['title'],
+              'body' => $_POST['body'],
+              'image' => str_replace(' ', '', $_FILES['myfile']['name']),
 
-    'title_err' => '',
-    'body_err' => '',
-    'image_err' => '',
-   ];
+              'title_err' => '',
+              'body_err' => '',
+              'image_err' => '',
+             ];
 
             $currentDir = getcwd();
             $uploadDirectory = "/uploads/";
 
             // $errors = []; // Store all foreseen and unforseen errors here
-   $data['image_err'] = []; // Store all foreseen and unforseen errors here
+            $data['image_err'] = []; // Store all foreseen and unforseen errors here
 
-   $fileExtensions = ['jpeg', 'jpg', 'png']; // Get all the file extensions
+            $fileExtensions = ['jpeg', 'jpg', 'png']; // Get all the file extensions
 
             // les informations concernant les champs de type file sont enregistrées dans le tableau superglobal $_FILES ;
 
             $fileName = str_replace(' ', '', $_FILES['myfile']['name']); // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
-   $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
-   $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
-   $fileType = $_FILES['myfile']['type'];
+            $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
+            $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
+            $fileType = $_FILES['myfile']['type'];
             $tmp = explode('.', $fileName);
             $fileExtension = strtolower(end($tmp));
 
@@ -126,10 +126,10 @@ class AdminChapters extends Controller
             }
         } else {
             $data = [
-    'title' => '',
-    'body' => '',
-    'image' => '',
-   ];
+              'title' => '',
+              'body' => '',
+              'image' => '',
+             ];
             $this->view('adminchapters/add', $data);
         }
     }
@@ -146,8 +146,8 @@ class AdminChapters extends Controller
         $chapter = $this->chapterModel->getChapterById($id);
 
         $data = [
-    'chapter' => $chapter,
-   ];
+          'chapter' => $chapter,
+         ];
 
         $this->view('adminchapters/show', $data);
     }
@@ -167,28 +167,28 @@ class AdminChapters extends Controller
             //  $_POST = filter_input_array(INPUT_POST);
 
             $data = [
-    'id' => $id,
-    'title' => $_POST['title'],
-    'body' => $_POST['body'],
-    'image' => str_replace(' ', '', $_FILES['myfile']['name']),
+              'id' => $id,
+              'title' => $_POST['title'],
+              'body' => $_POST['body'],
+              'image' => str_replace(' ', '', $_FILES['myfile']['name']),
 
-    'title_err' => '',
-    'body_err' => '',
-    'image_err' => '',
-   ];
+              'title_err' => '',
+              'body_err' => '',
+              'image_err' => '',
+             ];
 
             $currentDir = getcwd();
             $uploadDirectory = "/uploads/";
 
             // $errors = []; // Store all foreseen and unforseen errors here
-   $data['image_err'] = []; // Store all foreseen and unforseen errors here
+            $data['image_err'] = []; // Store all foreseen and unforseen errors here
 
-   $fileExtensions = ['jpeg', 'jpg', 'png']; // Get all the file extensions
+            $fileExtensions = ['jpeg', 'jpg', 'png']; // Get all the file extensions
 
             $fileName = str_replace(' ', '', $_FILES['myfile']['name']); // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
-   $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
-   $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
-   $fileType = $_FILES['myfile']['type'];
+            $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
+            $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
+            $fileType = $_FILES['myfile']['type'];
             $tmp = explode('.', $fileName);
             $fileExtension = strtolower(end($tmp));
 
@@ -244,11 +244,11 @@ class AdminChapters extends Controller
             $chapter = $this->chapterModel->getChapterById($id);
 
             $data = [
-    'id' => $id,
-    'title' => $chapter->title,
-    'body' => $chapter->body,
-    'image' => $chapter->image,
-   ];
+              'id' => $id,
+              'title' => $chapter->title,
+              'body' => $chapter->body,
+              'image' => $chapter->image,
+             ];
             $this->view('adminchapters/edit', $data);
         }
     }

@@ -7,9 +7,9 @@
     <div class="pushy-content">
       <ul>
         <!-- Submenu -->
-        <li class="pushy-link"><a href="<?php echo URLROOT; ?>">Accueil</a></li>
-        <li class="pushy-submenu">
-          <button>Un Billet Simple pour l'Alaska</button>
+    <li class="pushy-link"><a href="<?php echo URLROOT; ?>">Accueil</a></li>
+    <li class="pushy-submenu">
+      <button>Un Billet Simple pour l'Alaska</button>
           <ul>
             <li class="pushy-link"><a href="<?php echo URLROOT; ?>/chapitres">Tous les chapitres</a></li>
             <?php foreach ($data['chapters'] as $chapter): ?>
@@ -68,6 +68,58 @@
       </div>
     </section>
 
+    <section id="latest-book">
+      <div class="container">
+        <div class="row latest-book">
+          <?php foreach ($data['books'] as $book): ?>
+          <?php if ($book->title === "Un Billet Simple pour l'Alaska"): ?>
+          <div class="col-md-7">
+            <div class="wrapper">
+              <div class="wrapper-info box1">
+                <div class="d-flex">
+                  <div>
+                    <h2 class="sub-title color-light-gray text-uppercase">Découvrez son nouveau roman</h2>
+                    <h3 class="heading-title py-2">Un Billet Simple Pour L'Alaska</h3>
+                  </div>
+                </div>
+                <?php echo $book->summary; ?>
+              </div>
+              <div><a href="<?php echo URLROOT; ?>/chapitres">Lire les chapitres </a><i
+                  class="fas fa-angle-double-right color-custom-red"></i></div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <img class="img-fluid" src="<?php echo URLROOT; ?>/uploads/<?php echo $book->image; ?>" alt="">
+          </div>
+          <?php endif;?>
+          <?php endforeach;?>
+        </div>
+      </div>
+    </section>
+
+    <section id="books-section">
+      <div class="container">
+        <div class="books-headings text-center">
+          <h2 class="heading-sub-title accent-color">Romans</h2>
+          <h3 class="heading-title">La lumière est dans le livre, laissez-le rayonner.</h3>
+        </div>
+        <div class="book-list">
+          <?php foreach ($data['books'] as $book): ?>
+          <div class="book-item">
+            <img class="img-fluid" src="<?php echo URLROOT; ?>/uploads/<?php echo $book->image; ?>" alt="">
+            <div class="book-info">
+              <a href="<?php echo URLROOT; ?>/livres/<?php echo $book->id; ?>">
+                <p class="title text-center p-2"><?php echo $book->title; ?></p>
+              </a>
+            </div>
+          </div>
+          <?php endforeach;?>
+        </div>
+        <div class="d-flex justify-content-end">
+          <a class="text-uppercase" href="<?php echo URLROOT; ?>/livres">Tous les livres <i
+              class="fas fa-angle-double-right color-custom-red"></i></a></div>
+      </div>
+    </section>
 
     <footer class="py-4 text-center">
       <div class="container">

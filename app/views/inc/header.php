@@ -15,8 +15,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <meta name="description"
-    content="Jean Forteroche, écrivain, travaille sur son prochain roman, Un Billet simple pour l'Alaska et le publie par épisode en ligne" />
   <link rel="canonical" href="https://juliaassad.fr/projet4/" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:type" content="website" />
