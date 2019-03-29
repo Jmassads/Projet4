@@ -75,10 +75,12 @@
            // This variable is the key to everything
            // echo $_GET['url'];
            // We now need to break it up into an array
+           // isset() - Cette fonction teste si une variable existe
            if (isset($_GET['url'])) {
                // variable superglobale $_GET
                $url = rtrim($_GET['url'], '/');
                // Supprime tous les caractères sauf les lettres, chiffres et $-_.+!*'(),{}|\\^~[]`<>#%";/?:@&=.
+               // https://openclassrooms.com/fr/courses/1269536-les-filtres-en-php-pour-valider-les-donnees-utilisateur
                $url = filter_var($url, FILTER_SANITIZE_URL);
                $url = explode('/', $url);
                //  print_r($url);
