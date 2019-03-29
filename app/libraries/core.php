@@ -39,11 +39,12 @@
                    $this->currentMethod = $url[1];
                    // Unset 1 index
                    unset($url[1]);
-               } else {
-                   http_response_code(404);
-                   include APPROOT . '/views/pages/404.php'; // provide your own file for the error page
-                   die();
                }
+               // else {
+               //     http_response_code(404);
+               //     include APPROOT . '/views/pages/404.php'; // provide your own file for the error page
+               //     die();
+               // }
            }
 
            // Get params - opérateur ternaire
