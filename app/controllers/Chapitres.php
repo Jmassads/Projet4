@@ -11,16 +11,20 @@ class Chapitres extends Controller
     public function __construct()
     {
         $this->chapterModel = $this->model('AdminChapter');
+        // $this->bookModel needed for the navigation
+        $this->bookModel = $this->model('AdminBook');
     }
 
     public function index($id = null)
     {
         $chapters = $this->chapterModel->getChapters();
         $chapter = $this->chapterModel->getChapterById($id);
+        $books = $this->bookModel->getBooks();
 
         $data = [
          'chapters' => $chapters,
          'chapter' => $chapter,
+         'books' => $books,
         ];
 
         if (is_null($id)) {

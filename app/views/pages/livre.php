@@ -60,12 +60,7 @@
       </div>
     </div>
   </section>
-
-  <footer class="py-4 text-center">
-    <div class="container">
-      <p>© 2018 Julia Assad - Projet 4 Openclassrooms</p>
-    </div>
-  </footer>
+  
   </div>
 
 
