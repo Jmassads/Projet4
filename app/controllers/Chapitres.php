@@ -26,7 +26,11 @@ class Chapitres extends Controller
         if (is_null($id)) {
             $this->view('pages/chapitres', $data);
         } else {
-            $this->view('pages/chapitre', $data);
+            if (!$chapter) {
+                $this->view('pages/404');
+            } else {
+                $this->view('pages/chapitre', $data);
+            }
         }
     }
 }
