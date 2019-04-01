@@ -62,24 +62,6 @@ class AdminChapters extends Controller
               'image_err' => '',
              ];
 
-            $currentDir = getcwd();
-            $uploadDirectory = "/uploads/";
-
-            // $errors = []; // Store all foreseen and unforseen errors here
-            $data['image_err'] = []; // Store all foreseen and unforseen errors here
-
-            $fileExtensions = ['jpeg', 'jpg', 'png']; // Get all the file extensions
-
-            // les informations concernant les champs de type file sont enregistrées dans le tableau superglobal $_FILES ;
-
-            $fileName = str_replace(' ', '', $_FILES['myfile']['name']); // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
-            $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
-            $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
-            $fileType = $_FILES['myfile']['type'];
-            $tmp = explode('.', $fileName);
-            $fileExtension = strtolower(end($tmp));
-
-            $uploadPath = $currentDir . $uploadDirectory . basename($fileName);
 
             // Validate data
             if (empty($data['title'])) {
@@ -89,18 +71,8 @@ class AdminChapters extends Controller
                 $data['body_err'] = 'Ce champ ne peut pas être vide';
             }
 
-            if (!in_array($fileExtension, $fileExtensions)) {
-                $data['image_err'][] = "Les fichiers autorises sont: .jpg, .jpeg, .png";
-            }
-            if ($fileSize > 2000000) {
-                $data['image_err'][] = "Le fichier ne doit pas depasser les 2MB";
-            }
-
             // Make sure there are no errors with the title and content
             if (empty($data['title_err']) && empty($data['body_err']) && empty($data['image'])) {
-
-    // if image uploaded without errors, we add the chapter into the database
-
                 if ($this->chapterModel->addChapter($data)) {
                     //  die('SUCCESS');
                     flash('chapter_message', 'Chapitre ajouté sans image');
@@ -109,13 +81,10 @@ class AdminChapters extends Controller
                     die('Il y a eu une erreur');
                 }
             } elseif (empty($data['title_err']) && empty($data['body_err']) && empty($data['image_err']) && !empty($data['image'])) {
-
-    // Validated (no image errors)
-
-                $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
-
-                if ($didUpload) {
-                    // if image uploaded without errors, we add the chapter into the database
+                $uploader = new Uploader();
+                // Validated (no image errors)
+                if ($uploader->uploadFile('myfile')) {
+                    // die('ok');
                     if ($this->chapterModel->addChapterWithImage($data)) {
                         //  die('SUCCESS');
                         flash('chapter_message', 'Chapitre ajouté avec image');
@@ -123,6 +92,10 @@ class AdminChapters extends Controller
                     } else {
                         die('Il y a eu une erreur');
                     }
+                } else {
+                    $error_message = $uploader->getError();
+                    $data['image_err'] = $error_message;
+                    $this->view('adminChapters/add', $data);
                 }
             } else {
                 $this->view('adminChapters/add', $data);
@@ -180,22 +153,6 @@ class AdminChapters extends Controller
               'image_err' => '',
              ];
 
-            $currentDir = getcwd();
-            $uploadDirectory = "/uploads/";
-
-            // $errors = []; // Store all foreseen and unforseen errors here
-            $data['image_err'] = []; // Store all foreseen and unforseen errors here
-
-            $fileExtensions = ['jpeg', 'jpg', 'png']; // Get all the file extensions
-
-            $fileName = str_replace(' ', '', $_FILES['myfile']['name']); // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
-            $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
-            $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
-            $fileType = $_FILES['myfile']['type'];
-            $tmp = explode('.', $fileName);
-            $fileExtension = strtolower(end($tmp));
-
-            $uploadPath = $currentDir . $uploadDirectory . basename($fileName);
 
             // Validate data
             if (empty($data['title'])) {
@@ -203,13 +160,6 @@ class AdminChapters extends Controller
             }
             if (empty($data['body'])) {
                 $data['body_err'] = 'Ce champ ne peut pas être vide';
-            }
-
-            if (!in_array($fileExtension, $fileExtensions)) {
-                $data['image_err'][] = "Les fichiers autorises sont: .jpg, .jpeg, .png";
-            }
-            if ($fileSize > 2000000) {
-                $data['image_err'][] = "Le fichier ne doit pas depasser les 2MB";
             }
 
             // Make sure there are no errors with the title and content
@@ -222,14 +172,11 @@ class AdminChapters extends Controller
                 } else {
                     die('Il y a eu une erreur');
                 }
-            } elseif (empty($data['title_err']) && empty($data['body_err']) && empty($data['image_err']) && !empty($data['image'])) {
+            } elseif (empty($data['title_err']) && empty($data['body_err']) && !empty($data['image'])) {
+                $uploader = new Uploader();
 
-    // Validated (no image errors)
-
-                $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
-
-                if ($didUpload) {
-                    // if image uploaded without errors, we add the chapter into the database
+                if ($uploader->uploadFile('myfile')) {
+                    // die('ok');
                     if ($this->chapterModel->updateChapterWithImage($data)) {
                         //  die('SUCCESS');
                         flash('chapter_message', 'Chapitre modifié avec image');
@@ -237,6 +184,10 @@ class AdminChapters extends Controller
                     } else {
                         die('Il y a eu une erreur');
                     }
+                } else {
+                    $error_message = $uploader->getError();
+                    $data['image_err'] = $error_message;
+                    $this->view('adminChapters/edit', $data);
                 }
             } else {
                 $this->view('adminChapters/edit', $data);
