@@ -26,19 +26,20 @@
           <?php echo $data['summary_err']; ?></span>
       </div>
       <div class="form-group">
-        <p>Image:
+        <p>Image actuelle:
           <?php echo $data['image']; ?>
         </p>
         <label>Sélectionner une nouvelle image:</label>
-        <input type="file" class="form-control-file" name="myfile">
+
+        <input type="file" name="myfile" class="form-control-file <?php echo (!empty($data['image_err'])) ? 'is-invalid' : ''; ?>">
         <?php if (isset($data['image_err'])): ?>
-        <?php foreach ($data['image_err'] as $error): ?>
-        <span><?php echo $error . '</br>'; ?></span>
+        <?php foreach ($data['image_err'] as $error):?>
+        <span class="invalid-feedback"><?php echo $error . '</br>';?></span>
         <?php endforeach;?>
         <?php endif;?>
-        <div class="mt-4">
-          <input type="submit" class="btn btn-success" value="Modifier">
-        </div>
+      </div>
+      <div class="form-actions mt-4">
+        <input type="submit" class="btn btn-success" value="Modifier">
       </div>
     </form>
   </div>

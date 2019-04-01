@@ -26,7 +26,6 @@
             // $ext         =   $this->getExtension($file_name);
 
             if (in_array($file_ext, $extensions)=== false) {
-                // $errors[]="extension not allowed, please choose a JPEG or PNG file.";
                 $this->addError("Les fichiers autorises sont: .jpg, .jpeg, .png, .gif");
             }
 

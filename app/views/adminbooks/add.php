@@ -9,7 +9,6 @@
     </div>
   </div>
 </header>
-
 <div class="container py-2">
   <div class="card card-body bg-light mt-5">
     <form action="<?php echo URLROOT; ?>/adminBooks/add" method="post" enctype="multipart/form-data">
