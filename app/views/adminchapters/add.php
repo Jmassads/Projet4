@@ -10,7 +10,7 @@
   </div>
 </header>
 
-
+<!-- La propriété enctype, indique le type d'encodage des données. Elle prendra la valeur « multipart/form-data », qui spécifie que le formulaire envoie des données binaires (fichier) et du texte (champs de formulaire). -->
 <div class="container py-2">
   <div class="card card-body bg-light mt-5">
     <form action="<?php echo URLROOT; ?>/adminChapters/add" method="post" enctype="multipart/form-data">
@@ -28,15 +28,14 @@
       </div>
       <div class="form-group">
         <label>Sélectionner une image:</label>
-        <input type="file" class="form-control-file" name="myfile">
-        <?php if (isset($data['image_err'])): ?>
-        <?php foreach ($data['image_err'] as $error): ?>
-        <span><?php echo $error . '</br>'; ?></span>
+        <input type="file" name="myfile" class="form-control-file <?php echo (!empty($data['image_err'])) ? 'is-invalid' : ''; ?>">
+        <?php if ($data['image_err']): ?>
+        <?php foreach ($data['image_err'] as $error):?>
+        <span class="invalid-feedback"><?php echo $error . '</br>';?></span>
         <?php endforeach;?>
         <?php endif;?>
-        <div class="mt-4">
-          <input type="submit" class="btn btn-success" value="Publier">
-        </div>
+        <input type="submit" class="btn btn-success mt-4" value="Publier">
+      </div>
     </form>
   </div>
 </div>
