@@ -69,7 +69,7 @@
       </div>
     </div>
 
-    <div class="add-comment">
+    <div class="add-comment my-4">
       <div class="container">
         <button class="btn btn-outline-dark"><strong>Ajoutez un commentaire</strong></button>
       </div>

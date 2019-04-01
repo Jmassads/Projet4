@@ -17,7 +17,7 @@
         public function uploadFile($fileToUpload)
         {
             $errors = array();
-            $file_name   =   $_FILES[$fileToUpload]["name"]; //Le nom original du fichier
+            $file_name   =   str_replace(' ', '', $_FILES[$fileToUpload]['name']); //Le nom original du fichier
             $file_size   =   $_FILES[$fileToUpload]["size"]; //La taille du fichier en octets.
             $file_tmp    =   $_FILES[$fileToUpload]['tmp_name']; //L'adresse vers le fichier uploadé dans le répertoire temporaire.
             $file_parts  =   explode('.', $file_name);

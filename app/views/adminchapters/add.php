@@ -34,9 +34,9 @@
         <span class="invalid-feedback"><?php echo $error . '</br>';?></span>
         <?php endforeach;?>
         <?php endif;?>
-        <div class="mt-4">
-          <input type="submit" class="btn btn-success" value="Publier">
-        </div>
+      </div>
+      <div class="form-actions mt-4">
+        <input type="submit" class="btn btn-success" value="Publier">
       </div>
     </form>
   </div>

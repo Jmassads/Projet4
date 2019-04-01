@@ -34,8 +34,8 @@ class AdminChapters extends Controller
         $chapters = $this->chapterModel->getChapters();
 
         $data = [
-   'chapters' => $chapters,
-  ];
+         'chapters' => $chapters,
+        ];
 
         $this->view('adminchapters/index', $data);
     }
@@ -62,7 +62,6 @@ class AdminChapters extends Controller
               'image_err' => '',
              ];
 
-
             // Validate data
             if (empty($data['title'])) {
                 $data['title_err'] = 'Ce champ ne peut pas être vide';
@@ -71,6 +70,10 @@ class AdminChapters extends Controller
                 $data['body_err'] = 'Ce champ ne peut pas être vide';
             }
 
+            $uploader = new Uploader();
+            $uploader->uploadFile('myfile');
+            $error_message = $uploader->getError();
+            $data['image_err'] = $error_message;
             // Make sure there are no errors with the title and content
             if (empty($data['title_err']) && empty($data['body_err']) && empty($data['image'])) {
                 if ($this->chapterModel->addChapter($data)) {
@@ -80,22 +83,13 @@ class AdminChapters extends Controller
                 } else {
                     die('Il y a eu une erreur');
                 }
-            } elseif (empty($data['title_err']) && empty($data['body_err']) && empty($data['image_err']) && !empty($data['image'])) {
-                $uploader = new Uploader();
-                // Validated (no image errors)
-                if ($uploader->uploadFile('myfile')) {
-                    // die('ok');
-                    if ($this->chapterModel->addChapterWithImage($data)) {
-                        //  die('SUCCESS');
-                        flash('chapter_message', 'Chapitre ajouté avec image');
-                        redirect('adminChapters');
-                    } else {
-                        die('Il y a eu une erreur');
-                    }
+            } elseif (empty($data['title_err']) && empty($data['body_err']) && !empty($data['image']) && empty($data['image_err'])) {
+                if ($this->chapterModel->addChapterWithImage($data)) {
+                    //  die('SUCCESS');
+                    flash('chapter_message', 'Chapitre ajouté avec image');
+                    redirect('adminChapters');
                 } else {
-                    $error_message = $uploader->getError();
-                    $data['image_err'] = $error_message;
-                    $this->view('adminChapters/add', $data);
+                    die('Il y a eu une erreur');
                 }
             } else {
                 $this->view('adminChapters/add', $data);
@@ -162,6 +156,11 @@ class AdminChapters extends Controller
                 $data['body_err'] = 'Ce champ ne peut pas être vide';
             }
 
+            $uploader = new Uploader();
+            $uploader->uploadFile('myfile');
+            $error_message = $uploader->getError();
+            $data['image_err'] = $error_message;
+
             // Make sure there are no errors with the title and content
             if (empty($data['title_err']) && empty($data['body_err']) && empty($data['image'])) {
                 // if image uploaded without errors, we add the chapter into the database
@@ -172,22 +171,13 @@ class AdminChapters extends Controller
                 } else {
                     die('Il y a eu une erreur');
                 }
-            } elseif (empty($data['title_err']) && empty($data['body_err']) && !empty($data['image'])) {
-                $uploader = new Uploader();
-
-                if ($uploader->uploadFile('myfile')) {
-                    // die('ok');
-                    if ($this->chapterModel->updateChapterWithImage($data)) {
-                        //  die('SUCCESS');
-                        flash('chapter_message', 'Chapitre modifié avec image');
-                        redirect('adminChapters');
-                    } else {
-                        die('Il y a eu une erreur');
-                    }
+            } elseif (empty($data['title_err']) && empty($data['body_err']) && !empty($data['image']) && empty($data['image_err'])) {
+                if ($this->chapterModel->updateChapterWithImage($data)) {
+                    //  die('SUCCESS');
+                    flash('chapter_message', 'Chapitre modifié avec image');
+                    redirect('adminChapters');
                 } else {
-                    $error_message = $uploader->getError();
-                    $data['image_err'] = $error_message;
-                    $this->view('adminChapters/edit', $data);
+                    die('Il y a eu une erreur');
                 }
             } else {
                 $this->view('adminChapters/edit', $data);
