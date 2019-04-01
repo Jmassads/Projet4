@@ -8,13 +8,13 @@
 class Database
 {
     private $host = DB_HOST; //* le chemin vers le serveur
-    private $user = DB_USER; // nom d'utilisateur pour se connecter
-    private $pass = DB_PASS; // mot de passe de l'utilisateur pour se connecter
-    private $dbname = DB_NAME; //* le nom de votre base de données
+ private $user = DB_USER; // nom d'utilisateur pour se connecter
+ private $pass = DB_PASS; // mot de passe de l'utilisateur pour se connecter
+ private $dbname = DB_NAME; //* le nom de votre base de données
 
-    private $dbh; // Database handler
-    private $stmt; // La requête
-    private $error;
+ private $dbh; // Database handler
+ private $stmt; // La requête
+ private $error;
 
     public function __construct()
     {
