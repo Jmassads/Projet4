@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h1><i class="fas fa-comments"></i>Commentaires - Un Billet Simple Pour L'Alaska</h1>
+        <h1><i class="fas fa-comments"></i> Commentaires - Un Billet Simple Pour L'Alaska</h1>
       </div>
     </div>
   </div>

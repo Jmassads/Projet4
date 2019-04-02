@@ -32,26 +32,26 @@
             <h2><span class="commentsCount"><?php echo $data['commentsCount']; ?></span> Commentaire</h2>
             <?php endif;?>
             <div class="add-comment">
-            <button class="btn">Ajouter un commentaire</button>
+              <button class="btn">Ajouter un commentaire</button>
             </div>
           </div>
           <section class="add-comment-form">
-              <form action="<?php echo URLROOT; ?>/Chapitres/<?php echo $data['chapter']->id; ?>" method="post">
-                <div class="form-group">
-                  <label for="firstname">Prénom</label>
-                  <input name="firstname" type="text" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label for="lastname">Nom</label>
-                  <input name="lastname" type="text" class="form-control" required>
-                </div>
-                <div class="form-group">
-                  <label for="comment">Commentaire</label>
-                  <textarea name="comment" class="form-control" id="comment" rows="3"></textarea>
-                </div>
-                <input type="hidden" name="chapter_id" value="<?php echo $data['chapter']->id; ?>">
-                <input type="submit" class="btn btn-dark mt-4" value="Publier">
-              </form>
+            <form action="<?php echo URLROOT; ?>/Chapitres/<?php echo $data['chapter']->id; ?>" method="post">
+              <div class="form-group">
+                <label for="firstname">Prénom</label>
+                <input name="firstname" type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="lastname">Nom</label>
+                <input name="lastname" type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="comment">Commentaire</label>
+                <textarea name="comment" class="form-control" id="comment" rows="3"></textarea>
+              </div>
+              <input type="hidden" name="chapter_id" value="<?php echo $data['chapter']->id; ?>">
+              <input type="submit" class="btn btn-dark mt-4" value="Publier">
+            </form>
           </section>
           <div class="row">
             <div class="col-12">
@@ -67,9 +67,7 @@ setlocale(LC_TIME, "fr_FR");
 $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
 ?>
                     <?php echo $timeStamp; ?></p>
-                  <span class="ml-auto flagModal" data-toggle="modal"
-                    data-target="#flagModal<?php echo $commentByChapterId->id; ?>"><i
-                      class="fas fa-ellipsis-h"></i></span>
+                  <span class="ml-auto flagModal" data-toggle="modal" data-target="#flagModal<?php echo $commentByChapterId->id; ?>"><i class="fas fa-ellipsis-h"></i></span>
                 </div>
                 <div class="row">
                   <div class="col-8">
@@ -83,6 +81,38 @@ $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
 
               </div>
               <!-- Flag Modal -->
+              <form action="<?php echo URLROOT; ?>/chapitres/flag/<?php echo $data['chapter']->id; ?>" method="post">
+                <div class="modal fade" id="flagModal<?php echo $commentByChapterId->id; ?>" tabindex="-1" role="dialog" aria-labelledby="flagModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="flagModalLabel">Signalez ce commentaire</h5>
+                        <!-- <p>Commentaire ID:
+                        <?php echo $commentByChapterId->id; ?>
+                        </p> -->
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+
+                        <input type="hidden" name="comment_id" value="<?php echo $commentByChapterId->id; ?>">
+
+                        <select name="flag" required="required" class="custom-select">
+                          <option value="">Sélectionnez la raison du signalement</option>
+                          <option value="Contenu violent">Contenu violent</option>
+                          <option value="Contenu haineux ou abusif">Contenu haineux ou abusif</option>
+                          <option value="Spam">Spam</option>
+                        </select>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-dark" data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn btn-custom-red">Envoyer</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
 
               <?php endforeach;?>
             </div>

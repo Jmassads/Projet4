@@ -68,4 +68,34 @@ class Chapitres extends Controller
             }
         }
     }
+
+    public function flag($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = [
+              'comment_id' => $_POST['comment_id'],
+              'flag' => $_POST['flag'],
+             ];
+
+            if (isset($_POST['flag'])) {
+                $this->commentModel->addflag($data);
+
+                flash('comment_message', 'Ce commentaire a bien été signalé!');
+                header('Location: ' . URLROOT . '/' . 'chapitres/' . $id);
+            } else {
+                die('something went wrong');
+            }
+        } else {
+            if (is_null($id)) {
+                redirect('chapitres');
+            }
+
+            $data = [
+              'comment_id' => '',
+              'flag' => 0,
+             ];
+
+            $this->view('pages/chapitres', $data);
+        }
+    }
 }
