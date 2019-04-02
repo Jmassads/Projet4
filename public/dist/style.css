@@ -637,8 +637,9 @@ header {
 }
 
 .comment {
-  background-color: #fff;
-  margin: 3rem 0;
+  padding: 0 0 12px;
+  margin-top: 40px;
+  word-wrap: break-word;
 }
 
 .comments_wrapper {
@@ -718,6 +719,10 @@ header {
   }
 }
 
+.modal-open .modal {
+  padding-right: 0px !important;
+}
+
 .modal-content {
   padding: 2rem;
 }
@@ -753,7 +758,7 @@ header {
 
 .social-icons li a {
   padding: 0.5rem;
-  color: #666;
+  color: #e13d3d;
   cursor: pointer;
 }
 
@@ -763,6 +768,16 @@ header {
 
 .text-black {
   color: #000;
+}
+
+.comments-header {
+  padding-bottom: 26px;
+  border-bottom: 1px solid #d6d6d6;
+}
+
+.commentsCount {
+  color: #e4573d;
+  font-size: 2.6rem;
 }
 
 .comment-replies {
@@ -784,6 +799,14 @@ header {
 
 .add-comment {
   cursor: pointer;
+}
+
+.add-comment .btn {
+  color: #e4573d;
+  font-style: italic;
+  padding: 10px 30px;
+  border: 1px solid #e13d3d;
+  background: #fff;
 }
 
 .add-comment-form {
@@ -916,4 +939,3 @@ section.books {
   font-size: 8rem;
   color: #000;
 }
-
