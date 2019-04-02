@@ -36,7 +36,6 @@
             </div>
           </div>
           <section class="add-comment-form">
-            <div class="container">
               <form action="<?php echo URLROOT; ?>/Chapitres/<?php echo $data['chapter']->id; ?>" method="post">
                 <div class="form-group">
                   <label for="firstname">Prénom</label>
@@ -51,9 +50,8 @@
                   <textarea name="comment" class="form-control" id="comment" rows="3"></textarea>
                 </div>
                 <input type="hidden" name="chapter_id" value="<?php echo $data['chapter']->id; ?>">
-                <input type="submit" class="btn btn-dark" value="Publier">
+                <input type="submit" class="btn btn-dark mt-4" value="Publier">
               </form>
-            </div>
           </section>
           <div class="row">
             <div class="col-12">
@@ -61,7 +59,7 @@
               <div class="comment">
                 <div class="d-flex align-items-center">
                   <p class="text-uppercase font-weight-bold">
-                    <?php echo $commentByChapterId->firstname . ' ' . $commentByChapterId->lastname; ?></p>
+                    <?php echo htmlspecialchars($commentByChapterId->firstname) . ' ' . htmlspecialchars($commentByChapterId->lastname); ?></p>
                   <p class="medium-gray ml-4">
                     <?php
 $timeStamp = $commentByChapterId->date_added;
@@ -76,7 +74,7 @@ $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
                 <div class="row">
                   <div class="col-8">
                     <p class="text-black justify-content">
-                      <?php echo $commentByChapterId->comment; ?>
+                      <?php echo htmlspecialchars($commentByChapterId->comment); ?>
                     </p>
                     <!-- <p><?php echo $commentByChapterId->id; ?></p> -->
                   </div>

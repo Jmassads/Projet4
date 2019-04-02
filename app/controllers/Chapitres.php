@@ -38,11 +38,19 @@ class Chapitres extends Controller
             $this->view('pages/chapitres', $data);
         } else {
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+                // Sanitize POST
+                // $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
                 $data = [
-                 'firstname' => htmlspecialchars($_POST['firstname']),
-                 'lastname' => htmlspecialchars($_POST['lastname']),
-                 'comment' => htmlspecialchars($_POST['comment']),
-                 'chapter_id' => htmlspecialchars($_POST['chapter_id']),
+                 // 'firstname' => htmlspecialchars($_POST['firstname']),
+                 // 'lastname' => htmlspecialchars($_POST['lastname']),
+                 // 'comment' => htmlspecialchars($_POST['comment']),
+                 // 'chapter_id' => htmlspecialchars($_POST['chapter_id']),
+                 'firstname' => $_POST['firstname'],
+                 'lastname' => $_POST['lastname'],
+                 'comment' => $_POST['comment'],
+                 'chapter_id' => $_POST['chapter_id'],
                 ];
 
                 if ($this->commentModel->addComment($data)) {
