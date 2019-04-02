@@ -25,7 +25,7 @@
     <section id="comments" class="comments">
       <div class="container">
         <div class="comments_wrapper">
-          <div class="comments-header d-flex justify-content-between align-items-center">
+          <div class="comments-header d-sm-flex justify-content-between align-items-center text-center">
             <?php if ($data['commentsCount'] > 1 || $data['commentsCount'] === 0): ?>
             <h2><span class="commentsCount"><?php echo $data['commentsCount']; ?></span> Commentaires</h2>
             <?php else: ?>

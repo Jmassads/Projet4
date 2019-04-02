@@ -636,6 +636,13 @@ header {
   padding: 0 !important;
 }
 
+@media (max-width: 576px) {
+  .add-comment .btn {
+    margin-top: 2rem;
+  }
+}
+
+
 .comment {
   padding: 0 0 12px;
   margin-top: 40px;
