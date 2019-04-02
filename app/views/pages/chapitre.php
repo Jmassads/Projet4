@@ -22,7 +22,7 @@
       </div>
     </section>
 
-    <section id="comments" class="comments">
+    <div id="comments" class="comments">
       <div class="container">
         <div class="comments_wrapper">
           <div class="comments-header d-sm-flex justify-content-between align-items-center text-center">
@@ -35,31 +35,32 @@
               <button class="btn">Ajouter un commentaire</button>
             </div>
           </div>
-          <section class="add-comment-form">
+          <div class="add-comment-form">
             <form action="<?php echo URLROOT; ?>/Chapitres/<?php echo $data['chapter']->id; ?>" method="post">
               <div class="form-group">
                 <label for="firstname">Prénom</label>
-                <input name="firstname" type="text" class="form-control" required>
+                <input id="firstname" name="firstname" type="text" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="lastname">Nom</label>
-                <input name="lastname" type="text" class="form-control" required>
+                <input id="lastname" name="lastname" type="text" class="form-control" required>
               </div>
               <div class="form-group">
                 <label for="comment">Commentaire</label>
-                <textarea name="comment" class="form-control" id="comment" rows="3"></textarea>
+                <textarea id="comment" name="comment" class="form-control" id="comment" rows="3"></textarea>
               </div>
               <input type="hidden" name="chapter_id" value="<?php echo $data['chapter']->id; ?>">
               <input type="submit" class="btn btn-dark mt-4" value="Publier">
             </form>
-          </section>
+</div>
           <div class="row">
             <div class="col-12">
               <?php foreach ($data['commentsByChapterId'] as $commentByChapterId): ?>
               <div class="comment">
                 <div class="d-flex align-items-center">
                   <p class="text-uppercase font-weight-bold">
-                    <?php echo htmlspecialchars($commentByChapterId->firstname) . ' ' . htmlspecialchars($commentByChapterId->lastname); ?></p>
+                    <?php echo htmlspecialchars($commentByChapterId->firstname) . ' ' . htmlspecialchars($commentByChapterId->lastname); ?>
+                  </p>
                   <p class="medium-gray ml-4">
                     <?php
 $timeStamp = $commentByChapterId->date_added;
@@ -67,7 +68,9 @@ setlocale(LC_TIME, "fr_FR");
 $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
 ?>
                     <?php echo $timeStamp; ?></p>
-                  <span class="ml-auto flagModal" data-toggle="modal" data-target="#flagModal<?php echo $commentByChapterId->id; ?>"><i class="fas fa-ellipsis-h"></i></span>
+                  <span class="ml-auto flagModal" data-toggle="modal"
+                    data-target="#flagModal<?php echo $commentByChapterId->id; ?>"><i
+                      class="fas fa-ellipsis-h"></i></span>
                 </div>
                 <div class="row">
                   <div class="col-8">
@@ -82,7 +85,8 @@ $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
               </div>
               <!-- Flag Modal -->
               <form action="<?php echo URLROOT; ?>/chapitres/flag/<?php echo $data['chapter']->id; ?>" method="post">
-                <div class="modal fade" id="flagModal<?php echo $commentByChapterId->id; ?>" tabindex="-1" role="dialog" aria-labelledby="flagModalLabel" aria-hidden="true">
+                <div class="modal fade" id="flagModal<?php echo $commentByChapterId->id; ?>" tabindex="-1" role="dialog"
+                  aria-labelledby="flagModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
@@ -123,7 +127,7 @@ $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <div class="share-chapter">
       <div class="container">

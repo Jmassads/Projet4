@@ -15,9 +15,8 @@
     </div>
   </div>
 
-  <!--/portfolio section -->
-  <section id="books" class="books">
-
+  <!--/books section -->
+  <div id="books" class="books">
     <div class="books__toolbar">
       <button class="btn books-btn-active rounded-0" data-filter="*">Tous les livres</button>
       <button class="btn rounded-0" data-filter=".fiction">Fiction</button>
@@ -40,9 +39,7 @@
         <?php endforeach;?>
       </div>
     </div>
-  </section>
-  <!--/ end portfolio section-->
-
   </div>
+  <!--/ end books section-->
 
   <?php require APPROOT . '/views/inc/footer.php';?>

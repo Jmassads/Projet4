@@ -24,13 +24,10 @@
           </figure>
         </div>
         <div class="col-sm-6">
-          <p class="text-left"><?php echo $data['book']->summary; ?></p>
+          <?php echo $data['book']->summary; ?>
         </div>
       </div>
     </div>
   </section>
-
-  </div>
-
 
   <?php require APPROOT . '/views/inc/footer.php';?>

@@ -293,8 +293,8 @@ header {
 
 /* BOOKS */
 
-#books-section {
-  background-color: #f4f3ec;
+#books {
+  padding: 4rem 0;
 }
 
 .books-headings {
@@ -642,6 +642,10 @@ header {
   }
 }
 
+#comments,
+.add-comment-form {
+  padding: 4rem 0;
+}
 
 .comment {
   padding: 0 0 12px;
@@ -829,10 +833,7 @@ header {
 }
 
 
-/* PORTFOLIO */
-section.books {
-  background: #F5F5F5;
-}
+/* Books */
 
 .books__toolbar {
   text-align: center;
