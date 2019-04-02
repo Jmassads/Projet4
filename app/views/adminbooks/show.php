@@ -11,10 +11,9 @@
     </div>
   </div>
 </header>
-
 <div class="container py-2">
   <div class="row">
-    <?php if (!empty($data['chapter']->image)):?>
+    <?php if (!empty($data['book']->image)):?>
     <div class="col-sm-6">
       <figure class="text-center">
         <img class="img-fluid p-3" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['book']->image; ?>" alt="<?php echo $data['book']->title;?>">

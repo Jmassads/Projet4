@@ -39,15 +39,14 @@ class AdminComments extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             //Execute
             if ($this->commentModel->deleteComment($id)) {
-                // Redirect to login
+                // Redirect to adminComments
                 flash('comment_message', 'Commentaire supprimé');
                 redirect('adminComments/index');
             } else {
                 die('Something went wrong');
             }
         } else {
-            // CHECK THIS
-            redirect('');
+            redirect('adminComments/index');
         }
     }
 }

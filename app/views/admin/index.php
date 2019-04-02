@@ -21,12 +21,12 @@
   <a href="<?php echo URLROOT; ?>/adminBooks">
     <div class="card card-body bg-light mb-4">
       <p><i class="fas fa-book"></i><strong>
-          <?php echo $data['booksCount']; ?></strong> livres ont été publiés</p>
+          <?php echo $data['booksCount']; ?></strong> livres</p>
     </div>
   </a>
   <a href="<?php echo URLROOT; ?>/adminComments">
     <div class="card card-body bg-light mb-4">
-      <p><i class="fas fa-comments"></i> Vous avez <strong>
+      <p><i class="fas fa-comments"></i><strong>
           <?php echo $data['commentsCount']; ?></strong> commentaires</p>
     </div>
   </a>
