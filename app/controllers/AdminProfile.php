@@ -65,22 +65,10 @@ class AdminProfile extends Controller
     'image_err' => '',
    ];
 
-   $currentDir = getcwd();
-   $uploadDirectory = "/uploads/";
-
-   // $errors = []; // Store all foreseen and unforseen errors here
-   $data['image_err'] = []; // Store all foreseen and unforseen errors here
-
-   $fileExtensions = ['jpeg', 'jpg', 'png']; // Get all the file extensions
-
-   $fileName = str_replace(' ', '', $_FILES['myfile']['name']); // Le nom original du fichier, comme sur le disque du visiteur (exemple : mon_icone.png).
-   $fileSize = $_FILES['myfile']['size']; // La taille du fichier en octets.
-   $fileTmpName = $_FILES['myfile']['tmp_name']; // L'adresse vers le fichier uploadé dans le répertoire temporaire.
-   $fileType = $_FILES['myfile']['type'];
-   $tmp = explode('.', $fileName);
-   $fileExtension = strtolower(end($tmp));
-
-   $uploadPath = $currentDir . $uploadDirectory . basename($fileName);
+   $uploader = new Uploader();
+   $uploader->uploadFile('myfile');
+   $error_message = $uploader->getError();
+   $data['image_err'] = $error_message;
 
    // Validate Email
    if (empty($data['email'])) {
@@ -90,13 +78,6 @@ class AdminProfile extends Controller
    // Validate Name
    if (empty($data['name'])) {
     $data['name_err'] = 'Please enter name';
-   }
-
-   if (!in_array($fileExtension, $fileExtensions)) {
-    $data['image_err'][] = "Les fichiers autorises sont: .jpg, .jpeg, .png";
-   }
-   if ($fileSize > 2000000) {
-    $data['image_err'][] = "Le fichier ne doit pas depasser les 2MB";
    }
 
    // Make sure there are no errors with the title and content
@@ -109,23 +90,18 @@ class AdminProfile extends Controller
     } else {
      die('Il y a eu une erreur');
     }
-   } elseif (empty($data['email_err']) && empty($data['name_err']) && empty($data['image_err'])) {
+   } elseif (empty($data['email_err']) && empty($data['name_err']) && empty($data['image_err']) && !empty($data['image'])) {
 
     // Validated
     // Hash Password
     $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
-    $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
-
-    if ($didUpload) {
-
-     // if image uploaded without errors, we add the info the database
-     if ($this->userModel->updateprofilewidthImage($data)) {
-      flash('profile_message', 'Votre profile à bien été modifié (image changée)');
-      redirect('AdminProfile/index');
-     } else {
-      die('Something went wrong');
-     }
+    // if image uploaded without errors, we add the info the database
+    if ($this->userModel->updateprofilewidthImage($data)) {
+     flash('profile_message', 'Votre profile à bien été modifié (image changée)');
+     redirect('AdminProfile/index');
+    } else {
+     die('Something went wrong');
     }
    } else {
     // Load view with errors

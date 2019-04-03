@@ -34,20 +34,20 @@
         <tbody>
           <?php foreach ($data['comments'] as $comment): ?>
           <tr>
-            <td class="col"><?php echo $comment->title; ?></td>
-            <td class="col"><?php echo $comment->firstname; ?></td>
-            <td class="col"><?php echo $comment->lastname; ?></td>
+            <td class="col"><?php echo htmlspecialchars($comment->title); ?></td>
+            <td class="col"><?php echo htmlspecialchars($comment->firstname); ?></td>
+            <td class="col"><?php echo htmlspecialchars($comment->lastname); ?></td>
             <td class="col"><?php if (strlen($comment->comment) > 20): ?>
               <?php echo substr($comment->comment, 0, strpos($comment->comment, ' ', 20)) ?> ...
               <?php else: ?>
-              <?php echo $comment->comment . ' ...'; ?>
+              <?php echo htmlspecialchars($comment->comment) . ' ...'; ?>
               <?php endif;?></td>
             <?php
 $timeStamp = $comment->commentDate;
 setlocale(LC_TIME, "fr_FR");
 $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
 ?>
-            <td class="col"><?php echo $timeStamp; ?></td>
+            <td class="col"><?php echo utf8_encode($timeStamp); ?></td>
             <td class="col"><?php echo htmlspecialchars($comment->flag); ?></td>
             <?php
 $timeStamp = $comment->flagDate;
@@ -55,7 +55,7 @@ setlocale(LC_TIME, "fr_FR");
 $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
 ?>
             <?php if (isset($comment->flagDate)): ?>
-            <td class="col"><?php echo $timeStamp; ?></td>
+            <td class="col"><?php echo utf8_encode($timeStamp); ?></td>
             <?php else: ?>
             <td></td>
             <?php endif;?>

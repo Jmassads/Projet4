@@ -297,6 +297,10 @@ header {
   padding: 4rem 0;
 }
 
+#books-section {
+  background-color: #f4f3ec;
+}
+
 .books-headings {
   max-width: 70%;
   margin: 0 auto;
@@ -831,6 +835,7 @@ header {
 .modal-footer {
   border-top: none;
 }
+
 
 
 /* Books */

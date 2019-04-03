@@ -13,7 +13,7 @@
 
 <div class="container py-2">
   <p class="text-left">
-    <?php echo $data['comment']->comment; ?>
+    <?php echo htmlspecialchars($data['comment']->comment); ?>
   </p>
   <div class="d-flex justify-content-end">
     <form class="ml-2" action="<?php echo URLROOT; ?>/adminComments/deletecomment/<?php echo $data['comment']->id; ?>"
