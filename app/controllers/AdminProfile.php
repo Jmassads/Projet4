@@ -35,7 +35,6 @@ class AdminProfile extends Controller
     'confirm_password' => '',
     'name' => '',
     'email' => '',
-    'bio' => '',
    ];
 
    $this->view('adminprofile/index', $data);
@@ -123,5 +122,80 @@ class AdminProfile extends Controller
 
    $this->view('adminprofile/edit', $data);
   }
+ }
+
+ public function editPassword()
+ {
+
+  if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['modifypassword'])) {
+
+   $id = $_SESSION['user_id'];
+   $currentUser = $this->userModel->getCurrentUser($id);
+
+   $data = [
+    'currentUser' => $currentUser,
+    'password' => $_POST['password'],
+    'confirm_password' => $_POST['confirm_password'],
+    'user_id' => $_SESSION['user_id'],
+
+    'name' => '',
+    'email' => '',
+    'bio' => '',
+   ];
+
+   // Validate Password
+   if (empty($data['password'])) {
+    $data['password_err'] = 'Please enter password';
+   } elseif (strlen($data['password']) < 6) {
+    $data['password_err'] = 'Password must be at least 6 characters';
+   }
+
+   // Validate Confirm Password
+   if (empty($data['confirm_password'])) {
+    $data['confirm_password_err'] = 'Please confirm password';
+   } else {
+    if ($data['password'] != $data['confirm_password']) {
+     $data['confirm_password_err'] = 'Passwords do not match';
+    }
+   }
+   // Make sure errors are empty
+   if (empty($data['password_err']) && empty($data['confirm_password_err'])) {
+    // Validated
+
+    // Hash Password
+    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+    if ($this->userModel->updatePassword($data)) {
+     flash('profile_message', 'Votre mot de passe à bien été modifié');
+     redirect('adminProfile');
+    } else {
+     die('Something went wrong');
+    }
+
+   } else {
+    // Load view with errors
+    flash('password_error', 'Erreur, veuillez réeassayer');
+
+    $this->view('adminprofile/index', $data);
+   }
+
+  } else {
+
+   $id = $_SESSION['user_id'];
+   $currentUser = $this->userModel->getCurrentUser($id);
+
+   $data = [
+    'currentUser' => $currentUser,
+    'password' => '',
+    'confirm_password' => '',
+    'name' => '',
+    'email' => '',
+    'bio' => '',
+
+   ];
+
+   $this->view('adminprofile/index', $data);
+  }
+
  }
 }

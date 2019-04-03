@@ -20,7 +20,7 @@
             <form action="<?php echo URLROOT; ?>/adminProfile/edit" method="post" enctype="multipart/form-data">
               <div class="form-group">
                 <label for="name">Nom</label>
-                <input id="nom" type="text" name="name"
+                <input id="name" type="text" name="name"
                   class="form-control <?php echo (!empty($data['name_err'])) ? 'is-invalid' : ''; ?>"
                   value="<?php echo $data['currentUser']->name; ?>">
                 <span class="invalid-feedback">
