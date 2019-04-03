@@ -43,19 +43,19 @@
               <?php echo $comment->comment . ' ...'; ?>
               <?php endif;?></td>
             <?php
-            $timeStamp = $comment->commentDate;
-            setlocale(LC_TIME, "fr_FR");
-            $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
-            ?>
-            <td class="col"><?php echo utf8_encode($timeStamp); ?></td>
-            <td class="col"><?php echo $comment->flag; ?></td>
+$timeStamp = $comment->commentDate;
+setlocale(LC_TIME, "fr_FR");
+$timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
+?>
+            <td class="col"><?php echo $timeStamp; ?></td>
+            <td class="col"><?php echo htmlspecialchars($comment->flag); ?></td>
             <?php
-            $timeStamp = $comment->flagDate;
-            setlocale(LC_TIME, "fr_FR");
-            $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
-            ?>
+$timeStamp = $comment->flagDate;
+setlocale(LC_TIME, "fr_FR");
+$timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
+?>
             <?php if (isset($comment->flagDate)): ?>
-            <td class="col"><?php echo utf8_encode($timeStamp); ?></td>
+            <td class="col"><?php echo $timeStamp; ?></td>
             <?php else: ?>
             <td></td>
             <?php endif;?>

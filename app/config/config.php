@@ -2,15 +2,15 @@
 
 // DB Params
 
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', 'root');
-define('DB_NAME', 'db_jf');
-
 // define('DB_HOST', 'localhost');
-// define('DB_USER', 'jmsibbay_jmassads');
-// define('DB_PASS', 'forteroche');
-// define('DB_NAME', 'jmsibbay_db_jf');
+// define('DB_USER', 'root');
+// define('DB_PASS', 'root');
+// define('DB_NAME', 'db_jf');
+
+define('DB_HOST', 'localhost');
+define('DB_USER', 'jmsibbay_jmassads');
+define('DB_PASS', 'forteroche');
+define('DB_NAME', 'jmsibbay_db_mvc');
 
 // Define are used for constants
 // echo __FILE__;
@@ -23,7 +23,7 @@ define('DB_NAME', 'db_jf');
 define('APPROOT', dirname(dirname(__FILE__))); // /Applications/MAMP/htdocs/projet4/app
 
 // URL Root
-define('URLROOT', 'http://localhost:8888/projet4test');
+define('URLROOT', 'https://juliaassad.fr/projet4test');
 
 define('SITENAME', 'Jean Forteroche');
 

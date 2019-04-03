@@ -16,11 +16,11 @@
       </div>
     </div>
 
-    <section>
+    <div class="chapter_single">
       <div class="container">
         <?php echo $data['chapter']->body; ?>
       </div>
-    </section>
+    </div>
 
     <div id="comments" class="comments">
       <div class="container">
@@ -47,7 +47,7 @@
               </div>
               <div class="form-group">
                 <label for="comment">Commentaire</label>
-                <textarea id="comment" name="comment" class="form-control" id="comment" rows="3"></textarea>
+                <textarea id="comment" name="comment" class="form-control" rows="3"></textarea>
               </div>
               <input type="hidden" name="chapter_id" value="<?php echo $data['chapter']->id; ?>">
               <input type="submit" class="btn btn-dark mt-4" value="Publier">
@@ -86,14 +86,14 @@ $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
               <!-- Flag Modal -->
               <form action="<?php echo URLROOT; ?>/chapitres/flag/<?php echo $data['chapter']->id; ?>" method="post">
                 <div class="modal fade" id="flagModal<?php echo $commentByChapterId->id; ?>" tabindex="-1" role="dialog"
-                  aria-labelledby="flagModalLabel" aria-hidden="true">
+                  aria-labelledby="flagModal<?php echo $commentByChapterId->id; ?>" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="flagModalLabel">Signalez ce commentaire</h5>
-                        <!-- <p>Commentaire ID:
+                        <h5 class="modal-title">Signalez ce commentaire</h5>
+                        <p>Commentaire ID:
                         <?php echo $commentByChapterId->id; ?>
-                        </p> -->
+                        </p>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
@@ -107,6 +107,7 @@ $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
                           <option value="Contenu violent">Contenu violent</option>
                           <option value="Contenu haineux ou abusif">Contenu haineux ou abusif</option>
                           <option value="Spam">Spam</option>
+                          <option value="Autre">Autre</option>
                         </select>
                       </div>
                       <div class="modal-footer">

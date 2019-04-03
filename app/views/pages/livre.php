@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <section>
+  <div class="book_single">
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
@@ -28,6 +28,6 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <?php require APPROOT . '/views/inc/footer.php';?>

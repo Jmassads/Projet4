@@ -17,7 +17,7 @@
   <meta property="og:description" content="Jean Forteroche, écrivain, travaille sur son prochain roman, Un Billet simple pour l'Alaska et le publie par épisode en ligne" />
   <meta property="og:url" content="https://juliaassad.fr/projet4/" />
   <meta property="og:site_name" content="Jean Forteroche" />
-  
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:description" content="Jean Forteroche, écrivain, travaille sur son prochain roman, Un Billet simple pour l'Alaska et le publie par épisode en ligne" />
   <meta name="twitter:title" content="Jean Forteroche | Écrivain - Projet OpenClassrooms - Julia Assad" />
@@ -98,16 +98,16 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
         <li class="nav-item px-2">
-          <a href="<?php echo URLROOT; ?>/admin" class="nav-link active">Tableau de bord</a>
+          <a href="<?php echo URLROOT; ?>/Admin" class="nav-link active">Tableau de bord</a>
         </li>
         <li class="nav-item px-2">
-          <a href="<?php echo URLROOT; ?>/adminChapters" class="nav-link">Chapitres</a>
+          <a href="<?php echo URLROOT; ?>/AdminChapters" class="nav-link">Chapitres</a>
         </li>
         <li class="nav-item px-2">
-          <a href="<?php echo URLROOT; ?>/adminBooks" class="nav-link">Livres</a>
+          <a href="<?php echo URLROOT; ?>/AdminBooks" class="nav-link">Livres</a>
         </li>
         <li class="nav-item px-2">
-          <a href="<?php echo URLROOT; ?>/adminComments" class="nav-link">Commentaires</a>
+          <a href="<?php echo URLROOT; ?>/AdminComments" class="nav-link">Commentaires</a>
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
@@ -116,7 +116,7 @@
             Bonjour
             <?php echo $_SESSION['user_name']; ?></a>
           <div class="dropdown-menu">
-            <a href="<?php echo URLROOT; ?>/adminProfile" class="dropdown-item"><i class="fas fa-user-circle"></i>
+            <a href="<?php echo URLROOT; ?>/AdminProfile" class="dropdown-item"><i class="fas fa-user-circle"></i>
               Profile</a>
           </div>
         </li>
@@ -131,7 +131,7 @@
         </li>
         <?php if (isset($_SESSION['user_id'])): ?>
         <li class="nav-item">
-          <a href="<?php echo URLROOT; ?>/users/logout" class="nav-link">Logout <i class="fas fa-sign-out-alt"></i></a>
+          <a href="<?php echo URLROOT; ?>/Users/logout" class="nav-link">Logout <i class="fas fa-sign-out-alt"></i></a>
         </li>
         <?php endif;?>
       </ul>

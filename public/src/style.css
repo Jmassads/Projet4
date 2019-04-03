@@ -844,6 +844,18 @@ header {
   font-size: 2rem;
 }
 
+.book_single {
+  padding: 4rem 0;
+}
+
+.chapter_single {
+  padding: 4rem 0;
+}
+
+.flagModal i {
+  padding: 2rem;
+}
+
 /* au cas ou javascript est désactivé (masonry grid) */
 .grid {
   margin: 0 auto;
@@ -946,4 +958,11 @@ header {
 .error_page h1 {
   font-size: 8rem;
   color: #000;
+}
+
+.editOption {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  font-size: 1.6rem;
 }

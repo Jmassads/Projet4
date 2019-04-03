@@ -43,10 +43,6 @@
                     <div class="col">
                         <input type="submit" name="submit" value="Inscription" class="btn btn-custom-red btn-block">
                     </div>
-                    <div class="col">
-                        <a href="<?php echo URLROOT; ?>/users/login" class="btn btn-light btn-block">Déjà un compte?
-                            Login </a>
-                    </div>
                 </div>
             </form>
         </div>

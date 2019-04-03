@@ -13,7 +13,7 @@
       public function __construct()
       {
           if (!isset($_SESSION['user_id'])) {
-              redirect('users/login');
+              redirect('Users/login');
           }
 
           $this->chapterModel = $this->model('AdminChapter');
