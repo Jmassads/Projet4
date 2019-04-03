@@ -10,6 +10,10 @@
   </div>
 </header>
 
+<div class="container my-2">
+  <?php flash('register_success');?>
+</div>
+
 <div class="dashboard-items container py-5">
   <a href="<?php echo URLROOT; ?>/adminChapters">
     <div class="card card-body bg-light mb-4">
