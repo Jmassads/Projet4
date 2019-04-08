@@ -1,1 +1,3 @@
 Options -Indexes
+
+# if someone tries to browse the contents of the app folder they'll get a 403 (Forbidden) error.

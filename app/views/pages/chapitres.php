@@ -22,8 +22,8 @@
             <div class="py-3">
               <figure class="text-center">
                 <?php if (!empty($chapter->image)): ?>
-                <img class="img-fluid" src="<?php echo URLROOT; ?>/uploads/<?php echo $chapter->image; ?>" alt="prologue">
-                <?php endif;?>
+                <a href="<?php echo URLROOT; ?>/chapitres/<?php echo $chapter->id; ?>"><img class="img-fluid" src="<?php echo URLROOT; ?>/uploads/<?php echo $chapter->image; ?>" alt="<?php echo $chapter->title; ?>">
+                <?php endif;?></a>
               </figure>
               <div class="chapter_title_box">
                 <a href="<?php echo URLROOT; ?>/chapitres/<?php echo $chapter->id; ?>">
@@ -31,7 +31,11 @@
                 </a>
               </div>
               <?php if (strlen($chapter->body) > 350): ?>
-              <?php echo substr($chapter->body, 0, strpos($chapter->body, ' ', 350)) ?> ...</p>
+              <!--
+                strrpos(string,find,start)
+                substr(string,start,length)
+              -->
+              <?php echo substr($chapter->body, 0, strrpos(substr($chapter->body, 0, 360), ' ')); ?> ...
               <?php else: ?>
               <?php echo $chapter->body; ?>
               <?php endif;?>

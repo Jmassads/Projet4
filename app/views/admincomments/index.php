@@ -38,7 +38,7 @@
             <td class="col"><?php echo htmlspecialchars($comment->firstname); ?></td>
             <td class="col"><?php echo htmlspecialchars($comment->lastname); ?></td>
             <td class="col"><?php if (strlen($comment->comment) > 20): ?>
-              <?php echo substr($comment->comment, 0, strpos($comment->comment, ' ', 20)) ?> ...
+              <?php echo htmlspecialchars(substr($comment->comment, 0, strrpos(substr($comment->comment, 0, 20), ' '))); ?> ...
               <?php else: ?>
               <?php echo htmlspecialchars($comment->comment) . ' ...'; ?>
               <?php endif;?></td>

@@ -47,9 +47,9 @@ class AdminChapters extends Controller
   */
  public function add()
  {
+  // Si le formulaire est soumis avec la méthode POST
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-   // Sanitize POST
-   // $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); // cela enlevera les balises;
+
    // Nous récupérons ici les données postées par le formulaire
    // les champs textuels (text, select, textarea, ...) sont copiés dans le tableau superglobal $_POST ;
    $data = [
@@ -76,6 +76,8 @@ class AdminChapters extends Controller
    $data['image_err'] = $error_message;
    // Make sure there are no errors with the title and content
    if (empty($data['title_err']) && empty($data['body_err']) && empty($data['image'])) {
+    // Si la méthode retourne TRUE
+
     if ($this->chapterModel->addChapter($data)) {
      //  die('SUCCESS');
      flash('chapter_message', 'Chapitre ajouté sans image');

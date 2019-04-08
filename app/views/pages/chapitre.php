@@ -47,7 +47,7 @@
               </div>
               <div class="form-group">
                 <label for="comment">Commentaire</label>
-                <textarea id="comment" name="comment" class="form-control" rows="3"></textarea>
+                <textarea id="comment" name="comment" class="form-control" rows="3" required></textarea>
               </div>
               <input type="hidden" name="chapter_id" value="<?php echo $data['chapter']->id; ?>">
               <input type="submit" class="btn btn-dark mt-4" value="Publier">

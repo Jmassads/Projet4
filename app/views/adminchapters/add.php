@@ -10,7 +10,6 @@
   </div>
 </header>
 
-
 <div class="container py-2">
   <div class="card card-body bg-light mt-5">
     <form action="<?php echo URLROOT; ?>/adminChapters/add" method="post" enctype="multipart/form-data">
@@ -30,8 +29,8 @@
         <label>Sélectionner une image:</label>
         <input type="file" name="myfile" class="form-control-file <?php echo (!empty($data['image_err'])) ? 'is-invalid' : ''; ?>">
         <?php if (isset($data['image_err'])): ?>
-        <?php foreach ($data['image_err'] as $error):?>
-        <span class="invalid-feedback"><?php echo $error . '</br>';?></span>
+        <?php foreach ($data['image_err'] as $error): ?>
+        <span class="invalid-feedback"><?php echo $error . '</br>'; ?></span>
         <?php endforeach;?>
         <?php endif;?>
       </div>

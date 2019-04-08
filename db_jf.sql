@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le :  mar. 02 avr. 2019 à 13:58
+-- Généré le :  lun. 08 avr. 2019 à 09:35
 -- Version du serveur :  5.6.38
 -- Version de PHP :  7.2.1
 
@@ -40,7 +40,7 @@ CREATE TABLE `books` (
 
 INSERT INTO `books` (`id`, `title`, `summary`, `genre`, `image`) VALUES
 (1, 'Un Billet Simple pour l\'Alaska', '<p><span style=\"color: #696969; font-family: \'Open Sans\', sans-serif; font-size: 14.4px; background-color: #ffffff;\">Peter Flectcher avait tout juste 2 ans quand sa m&egrave;re a quitt&eacute; l&rsquo;Alaska, fuyant la vie trop rude, et laissant derri&egrave;re elle le p&egrave;re de Peter. Peter a aujourd&rsquo;hui 26 ans et m&egrave;ne une vie bien remplie &agrave; Toronto. Lorsqu&rsquo;il apprend que les jours de son p&egrave;re, tr&egrave;s malade, sont peut-&ecirc;tre compt&eacute;s, il entreprend le voyage jusqu&rsquo;&agrave; son village natal. Il va alors d&eacute;couvrir le quotidien &laquo; &agrave; la dure &raquo; , les journ&eacute;es qui comptent peu d&rsquo;heures de clart&eacute;, les nuits &agrave; la belle &eacute;toile&hellip; Il va en profiter pour mieux conna&icirc;tre son p&egrave;re, &agrave; qui il tient beaucoup malgr&eacute; les erreurs qu&rsquo;il a commises</span></p>', 'suspense', 'book1.jpeg'),
-(2, 'L\'écho de ton souvenir', '<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo dui a elit egestas condimentum. Suspendisse volutpat nibh nisl, nec fermentum elit auctor quis. Nulla in fermentum libero. Pellentesque molestie a quam eu varius. Aenean tincidunt libero at sapien tincidunt hendrerit.</p>', 'fiction', 'book2.jpeg'),
+(2, 'L\'Écho de ton souvenir', '<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo dui a elit egestas condimentum. Suspendisse volutpat nibh nisl, nec fermentum elit auctor quis. Nulla in fermentum libero. Pellentesque molestie a quam eu varius. Aenean tincidunt libero at sapien tincidunt hendrerit.</p>', 'fiction', 'book2.jpeg'),
 (3, 'L\'enfant qui venait des étoiles', '<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo dui a elit egestas condimentum. Suspendisse volutpat nibh nisl, nec fermentum elit auctor quis. Nulla in fermentum libero. Pellentesque molestie a quam eu varius. Aenean tincidunt libero at sapien tincidunt hendrerit.</p>', 'suspense', 'book3.jpeg'),
 (4, 'A la poursuite du sauvage', '<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo dui a elit egestas condimentum. Suspendisse volutpat nibh nisl, nec fermentum elit auctor quis. Nulla in fermentum libero. Pellentesque molestie a quam eu varius. Aenean tincidunt libero at sapien tincidunt hendrerit.</p>', 'aventure', 'book4.jpeg'),
 (5, 'L\'Ombre du vent', '<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif; font-size: 14px; background-color: #ffffff;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo dui a elit egestas condimentum. Suspendisse volutpat nibh nisl, nec fermentum elit auctor quis. Nulla in fermentum libero. Pellentesque molestie a quam eu varius. Aenean tincidunt libero at sapien tincidunt hendrerit.</p>', 'aventure', 'book5.jpeg'),
@@ -87,16 +87,6 @@ CREATE TABLE `comments` (
   `chapter_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Déchargement des données de la table `comments`
---
-
-INSERT INTO `comments` (`id`, `firstname`, `lastname`, `comment`, `date_added`, `chapter_id`) VALUES
-(1, 'Patricio', 'Simpson', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Risus nullam eget felis eget nunc lobortis mattis. Magna fermentum iaculis eu non diam phasellus.', '2019-02-01 17:10:48', 1),
-(2, 'Yvonne', 'Moncada', 'Tincidunt arcu non sodales neque sodales ut etiam sit amet.', '2019-03-13 17:23:11', 2),
-(3, 'Julia', 'Assad', 'Deuxième commentaire', '2019-04-02 07:22:04', 1),
-(4, 'Julia', 'Assad', 'Faille xss...testing...\r\n&lt;script type=&quot;text/javascript&quot;&gt;\r\n                        alert(\'Ohoh, vous avez été piraté par `Haku !!\');\r\n                        &lt;/script&gt;', '2019-04-02 07:22:34', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -130,8 +120,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `image`, `created_at`) VALUES
-(1, 'Jean Forteroche ', 'JForteroche@gmail.com', '$2y$10$lgNKzdVCGT49uC.Lu.VNtuQtenUoZKPQCKpUjOw1Lao.F9bqX3BZG', 'self.jpeg', '2019-02-24 09:40:20'),
-(2, 'Julia', 'juliasajah85@gmail.com', '$2y$10$TvlsDC5XXQFaqMnaU75O3.iSV77VrdhTN7Vpuc1w97rXI5IVgMTea', 'avatar.png', '2019-03-22 12:57:32'),
+(1, 'Jean Forteroche ', 'JForteroche@gmail.com', '$2y$10$aCmAVqwYWbB0.bNa1tBzuueg5OeCs5JpLbeA.85bjgo4AqoWJCwee', 'self.jpeg', '2019-02-24 09:40:20'),
+(2, 'Julia', 'juliasajah85@gmail.com', '$2y$10$TvlsDC5XXQFaqMnaU75O3.iSV77VrdhTN7Vpuc1w97rXI5IVgMTea', 'julia.png', '2019-03-22 12:57:32'),
 (3, 'Etienne', 'emousse@gmail.com', '$2y$10$BrDUbrDGJJGCmYpLoX/XEOpDAfBw25hwLX1BsPQyGfz6u5CDBDUFu', 'emousse.jpeg', '2019-03-22 14:48:25');
 
 --
@@ -188,7 +178,7 @@ ALTER TABLE `chapters`
 -- AUTO_INCREMENT pour la table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `comments_flags`
