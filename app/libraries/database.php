@@ -41,8 +41,7 @@ class Database
   } catch (PDOException $e) { // le catch est chargé d'intercepter une éventuelle erreur apparue dans le try
    $this->error = $e->getMessage();
    echo $this->error;
-  }
- }
+  }}
 
  // On prépare la requête
  public function query($sql)
@@ -124,4 +123,17 @@ class Database
  {
   return $this->stmt->rowCount();
  }
+
+ // On prépare la requête (test pour SQL injection)
+ public function find($sql)
+ {
+  $this->stmt = $this->dbh->query($sql);
+ }
+
+ // On Récupère une seule entrée sous forme d'objet (test pour SQL injection)
+ public function getsingle()
+ {
+  return $this->stmt->fetch(PDO::FETCH_OBJ);
+ }
+
 }

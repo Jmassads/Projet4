@@ -25,6 +25,18 @@
         </div>
         <div class="col-sm-6">
           <?php echo $data['book']->summary; ?>
+          <?php if ($data['book']->title == "Un Billet Simple pour l'Alaska"): ?>
+          <a href="<?php echo URLROOT; ?>/Chapitres" class='btn btn-outline-dark mt-3'>
+          <i class="fab fa-readme"> Lire les Chapitres</i>
+          </a>
+          <?php else: ?>
+          <a href="" class="btn btn-outline-dark mt-3">
+            <i class="fab fa-amazon"> Acheter sur Amazon</i>
+          </a>
+          <a href="#" class='btn btn-outline-dark mt-3'>
+            <i class="fab fa-itunes"> Acheter sur iTunes</i>
+          </a>
+          <?php endif;?>
         </div>
       </div>
     </div>

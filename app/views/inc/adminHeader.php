@@ -45,43 +45,31 @@
     tinymce.init({
       selector: '.mytextarea',
       height: 400,
-      'wysiwyg additional options': {
-        'paste_remove_spans': true
-      },
+      plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help image emoticons',
+      paste_data_images: true,
+      toolbar: 'insertfile | formatselect | bold italic strikethrough forecolor backcolor | link | image | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat ',
       content_css: [
         '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
-        '//www.tiny.cloud/css/codepen.min.css'
+        '//www.tinymce.com/css/codepen.min.css'
       ],
-      style_formats: [{
-          title: 'Badge',
-          inline: 'span',
-          styles: {
-            display: 'inline-block',
-            border: '1px solid #2276d2',
-            'border-radius': '5px',
-            padding: '2px 5px',
-            margin: '0 2px',
-            color: '#2276d2'
-          }
-        },
-        {
-          title: 'Citation',
-          selector: 'p',
-          styles: {
-            color: '#696969'
-          }
-        },
-        {
-          title: 'Titre',
-          selector: 'h3',
-          classes: 'heading-title'
-        },
-        {
-          title: 'Subtitle',
-          selector: 'h2',
-          classes: 'sub-title color-light-gray text-uppercase'
-        }
-      ]
+      paste_data_images: true,
+      image_advtab: true,
+    file_picker_callback: function(callback, value, meta) {
+      if (meta.filetype == 'image') {
+        $('#upload').trigger('click');
+        $('#upload').on('change', function() {
+          var file = this.files[0];
+          var reader = new FileReader();
+          reader.onload = function(e) {
+            callback(e.target.result, {
+              alt: ''
+            });
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+    }
+
     });
   </script>
 

@@ -43,7 +43,7 @@ $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
       <?php else: ?>
       <?php echo $chapter->body; ?>
       <?php endif;?>
-      <a href="<?php echo URLROOT; ?>/adminChapters/show/<?php echo $chapter->id; ?>" class="btn btn-dark">Voir le
+      <a href="<?php echo URLROOT; ?>/adminChapters/show/<?php echo $chapter->id; ?>" class="btn btn-dark mt-3">Voir le
         chapitre</a>
     </div>
     <?php endforeach;?>

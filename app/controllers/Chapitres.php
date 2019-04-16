@@ -18,7 +18,7 @@ class Chapitres extends Controller
   $this->commentModel = $this->model('Comment');
  }
 
- public function index($id = null)
+ public function index($id = null, $current_page=1)
  {
   $chapters = $this->chapterModel->getChapters();
   $chapter = $this->chapterModel->getChapterById($id);
@@ -39,14 +39,7 @@ class Chapitres extends Controller
   } else {
    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // Sanitize POST
-    // $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
     $data = [
-     // 'firstname' => htmlspecialchars($_POST['firstname']),
-     // 'lastname' => htmlspecialchars($_POST['lastname']),
-     // 'comment' => htmlspecialchars($_POST['comment']),
-     // 'chapter_id' => htmlspecialchars($_POST['chapter_id']),
      'firstname' => $_POST['firstname'],
      'lastname' => $_POST['lastname'],
      'comment' => $_POST['comment'],

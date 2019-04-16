@@ -14,9 +14,9 @@
 
 <div class="container py-2">
   <div class="container py-2">
-    <?php if (!empty($data['chapter']->image)):?>
+    <?php if (!empty($data['chapter']->image)): ?>
     <figure class="text-center">
-      <img class="img-fluid p-3" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['chapter']->image; ?>" alt="<?php echo $data['chapter']->title;?>">
+      <img class="img-fluid p-3" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['chapter']->image; ?>" alt="<?php echo $data['chapter']->title; ?>">
     </figure>
     <?php endif;?>
     <p class="text-left">

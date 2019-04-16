@@ -33,7 +33,7 @@
       <?php else: ?>
       <?php echo $book->summary; ?>
       <?php endif;?>
-      <a href="<?php echo URLROOT; ?>/adminBooks/show/<?php echo $book->id; ?>" class="btn btn-dark">Voir le
+      <a href="<?php echo URLROOT; ?>/adminBooks/show/<?php echo $book->id; ?>" class="btn btn-dark mt-3">Voir le
         livre</a>
     </div>
     <?php endforeach;?>

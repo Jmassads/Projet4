@@ -24,6 +24,7 @@
         <span class="invalid-feedback">
           <?php echo $data['summary_err']; ?></span>
       </div>
+      <input name="image" type="file" id="upload" class="hidden" onchange="">
       <div class="form-group">
         <label for="genre">Sélectionner un genre:</label>
         <select id="genre" name="genre" required="required" class="form-control" id="genre">

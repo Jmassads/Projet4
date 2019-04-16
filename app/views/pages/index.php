@@ -8,7 +8,7 @@
     <header class="d-flex flex-column justify-content-center align-items-center">
       <button class="menu-btn">&#9776;</button>
       <h1>Jean Forteroche</h1>
-      <ul class="author-jobs">
+      <ul class="author-jobs list-unstyled">
         <li>Écrivain</li>
         <li>Acteur</li>
         <li>Aventurier</li>
@@ -24,7 +24,7 @@
           travers le monde.</p>
         <p>Actuellement, Jean Forteroche travaille sur son prochain roman, <strong>"Billet simple pour l'Alaska"</strong> et le publie par épisode en ligne sur ce site.</p>
 
-        <div class="row justify-content-center align-items-center">
+        <div class="row justify-content-center align-items-center pt-4">
           <div class="col-sm-6">
             <img class="img-fluid" src="<?php echo URLROOT; ?>/uploads/<?php echo $data['author']->image; ?>" alt="Photo de Jean Forteroche">
           </div>

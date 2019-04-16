@@ -40,9 +40,9 @@ section {
 }
 
 
-li {
+/* li {
   list-style-type: none;
-}
+} */
 
 img,
 object,
@@ -51,13 +51,63 @@ embed {
   height: auto;
 }
 
+ol {
+  font-size: 1.6rem;
+}
+
 button:focus {
   outline: 0;
 }
 
 /* TYPOGRAPHY */
 
+
+
 h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 3.5rem;
+  font-weight: 300;
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+h5 {
+  font-size: 2.6rem;
+  font-weight: 300;
+}
+
+h6 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
   color: white;
   font-family: 'PayTone One';
   font-weight: 300;
@@ -70,9 +120,14 @@ h2.heading-sub-title {
   display: block;
   font-size: 2.2rem;
   font-weight: 300;
-  padding-bottom: 20px;
   letter-spacing: 5px;
   text-transform: uppercase;
+  padding-bottom: 1.2rem;
+}
+
+h2.sub-title {
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 h3.heading-title {
@@ -80,20 +135,21 @@ h3.heading-title {
   font-size: 3.5rem;
   line-height: 1.33em;
   font-weight: 400;
-  padding-bottom: 1.5rem;
-}
-
-h4 {
-  font-weight: 300;
-  font-size: 2.4rem;
+  padding-bottom: 0.5rem;
 }
 
 p,
 label,
 .form-control {
   font-size: 1.6rem;
-  color: #696969;
+  color: #8f8888;
+  color: #000;
 }
+
+ul li {
+  font-size: 1.6rem;
+}
+
 
 .btn {
   font-size: 1.6rem;
@@ -101,7 +157,7 @@ label,
 
 span {
   color: #000;
-  font-size: 1.6rem;
+  /* font-size: 1.6rem; */
 }
 
 i {
@@ -123,7 +179,7 @@ a:hover {
 
 @media only screen and (max-width: 600px) {
 
-  h1 {
+  header h1 {
     font-size: 4.2rem;
   }
 
@@ -468,10 +524,12 @@ header {
 }
 */
 
+
 .page-banner {
   /*    background-color: #f4f3ec;*/
   padding: 10rem 0;
-  background-image: url('http://cdn.templatation.com/images/cdn/misc/am-hero.jpg');
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/banner.jpg);
+  /* background-image: url('../img/banner.jpg'); */
   background-size: cover;
   background-position: center;
   position: relative;

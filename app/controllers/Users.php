@@ -122,7 +122,8 @@ class Users extends Controller
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    // Process form
    // Sanitize POST data
-   $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+   // $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
    // Init data
    $data = [
@@ -158,11 +159,11 @@ class Users extends Controller
     // Validated
     // Check and set logged in user
     $loggedInUser = $this->userModel->login($data['email'], $data['password']);
-
     if ($loggedInUser) {
      // Create Session
      $this->createUserSession($loggedInUser);
     } else {
+
      $data['password_err'] = 'Mot de passe incorrect';
 
      $this->view('users/login', $data);

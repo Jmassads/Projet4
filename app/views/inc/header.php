@@ -31,10 +31,33 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  
+
   <!-- Vendor CSS styles -->
   <link href="<?php echo URLROOT; ?>/dist/main.css" rel="stylesheet" type="text/css" media="screen">
   <!-- Custom styles -->
   <link href="<?php echo URLROOT; ?>/dist/style.css" rel="stylesheet" type="text/css" media="screen">
+
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#efefef",
+      "text": "#404040"
+    },
+    "button": {
+      "background": "#e4573d"
+    }
+  },
+  "position": "bottom-right",
+  "content": {
+    "message": "Nous utilisons des cookies pour vous garantir la meilleure expérience utilisateur sur notre site. En continuant d'utiliser ce site, vous acceptez l'utilisation de ces cookies. ",
+    "dismiss": "Ok",
+    "link": "En savoir plus"
+  }
+})});
+</script>
 
 </head>

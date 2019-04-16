@@ -3,7 +3,6 @@
 <body class="page-template">
 
   <?php require APPROOT . '/views/inc/nav.php';?>
-
   <div id="container">
     <div class="page-banner">
       <button class="menu-btn">&#9776;</button>
@@ -27,9 +26,9 @@
         <div class="comments_wrapper">
           <div class="comments-header d-sm-flex justify-content-between align-items-center text-center">
             <?php if ($data['commentsCount'] > 1 || $data['commentsCount'] === 0): ?>
-            <h2><span class="commentsCount"><?php echo $data['commentsCount']; ?></span> Commentaires</h2>
+            <h5><span class="commentsCount"><?php echo $data['commentsCount']; ?></span> Commentaires</h5>
             <?php else: ?>
-            <h2><span class="commentsCount"><?php echo $data['commentsCount']; ?></span> Commentaire</h2>
+            <h5><span class="commentsCount"><?php echo $data['commentsCount']; ?></span> Commentaire</h5>
             <?php endif;?>
             <div class="add-comment">
               <button class="btn">Ajouter un commentaire</button>
@@ -134,7 +133,7 @@ $timeStamp = strftime("%A %d %B %G", strtotime($timeStamp));
       <div class="container">
         <div class="d-flex align-items-center">
           <p class="mr-3"><strong>Partagez:</strong></p>
-          <ul class="d-flex social-icons">
+          <ul class="d-flex social-icons list-unstyled">
             <li><a href="#"><i class="fab fa-facebook-f"></i></a>
             </li>
             <li><a href="#"><i class="fab fa-twitter"></i></a></li>

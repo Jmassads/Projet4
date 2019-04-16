@@ -25,6 +25,7 @@
         <span class="invalid-feedback">
           <?php echo $data['body_err']; ?></span>
       </div>
+      <input name="image" type="file" id="upload" class="hidden" onchange="">
       <div class="form-group">
         <label>Sélectionner une image:</label>
         <input type="file" name="myfile" class="form-control-file <?php echo (!empty($data['image_err'])) ? 'is-invalid' : ''; ?>">
