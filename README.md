@@ -2,7 +2,7 @@
 
 Développer un moteur de blog en PHP et MySQL (OOP PHP et architecture MVC)
 
-[https://juliaassad.fr/projet4] (https://juliaassad.fr/projet4)
+https://juliaassad.fr/projet4
 
 ## Objectifs
 
