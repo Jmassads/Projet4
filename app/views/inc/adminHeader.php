@@ -45,7 +45,7 @@
     tinymce.init({
       selector: '.mytextarea',
       height: 400,
-      plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount imagetools contextmenu colorpicker textpattern help image emoticons',
+      plugins: 'colorpicker image emoticons textcolor link media',
       paste_data_images: true,
       toolbar: 'insertfile | formatselect | bold italic strikethrough forecolor backcolor | link | image | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat ',
       content_css: [

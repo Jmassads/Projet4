@@ -30,10 +30,10 @@
           <i class="fab fa-readme"> Lire les Chapitres</i>
           </a>
           <?php else: ?>
-          <a href="" class="btn btn-outline-dark mt-3">
+          <a href="" class="btn btn-outline-dark btn-lg mt-3">
             <i class="fab fa-amazon"> Acheter sur Amazon</i>
           </a>
-          <a href="#" class='btn btn-outline-dark mt-3'>
+          <a href="#" class='btn btn-outline-dark btn-lg mt-3'>
             <i class="fab fa-itunes"> Acheter sur iTunes</i>
           </a>
           <?php endif;?>

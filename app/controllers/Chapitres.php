@@ -18,7 +18,7 @@ class Chapitres extends Controller
   $this->commentModel = $this->model('Comment');
  }
 
- public function index($id = null, $current_page=1)
+ public function index($id = null)
  {
   $chapters = $this->chapterModel->getChapters();
   $chapter = $this->chapterModel->getChapterById($id);

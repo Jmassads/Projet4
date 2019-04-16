@@ -75,7 +75,7 @@
         <div class="book-list">
           <?php foreach ($data['books'] as $book): ?>
           <div class="book-item">
-            <img class="img-fluid" src="<?php echo URLROOT; ?>/uploads/<?php echo $book->image; ?>" alt="">
+            <a href="<?php echo URLROOT; ?>/livres/<?php echo $book->id; ?>"><img class="img-fluid" src="<?php echo URLROOT; ?>/uploads/<?php echo $book->image; ?>" alt="<?php echo $book->image; ?>"></a>
             <div class="book-info">
               <a href="<?php echo URLROOT; ?>/livres/<?php echo $book->id; ?>">
                 <p class="title text-center p-2"><?php echo $book->title; ?></p>
